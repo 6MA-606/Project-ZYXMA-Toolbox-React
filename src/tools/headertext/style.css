@@ -1,0 +1,131 @@
+.content-header {
+    font-size: 3.75vw;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 1vw;
+}
+
+.content-feature {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.content-feature .flex_1,.flex_2 {
+    flex: 50%;
+}
+
+label,
+#text-shadow-ui span,
+#font-size {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type="text"] {
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+select {
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="color"] {
+    border: 0;
+    padding: 0px;
+    width: 0;
+    height: 0;
+    background-color: white;
+    display: inline;
+    position: absolute;
+    opacity: 0;
+}
+
+#custom-color-picker,
+#custom-shadow-color-picker,
+#custom-preview-bg {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    border-radius: 20px;
+    transform: translate(-25px, 2.5px);
+    cursor: pointer;
+    border: 1px solid #aaaaaa;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    transform: translate(-6px, 3px);
+}
+
+.tool-box {
+    margin: 2vh 0 0 1vw;
+}
+
+.css-terminal, .html-terminal{
+    margin-left: 1vw;
+    background-color: #dddddd;
+    display: inline-block;
+    border-radius: 10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.terminal-label {
+    padding: 10px;
+}
+
+.terminal-label span {
+    color: #505050;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#css-output, #html-output {
+    color: #fff;
+    background-color: #505050;
+    padding: 10px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
+.preview {
+    width: 70%;
+    height: 300px;
+    margin: 2vh 5vw 0 1vw;
+    overflow: auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.preview-label {
+    padding: 10px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #505050;
+}
+
+#preview-box {
+    padding: 20px;
+    overflow: hidden;
+}
+
+#text {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 800px) {
+    .content-feature {
+        flex-wrap: wrap;
+    }
+}

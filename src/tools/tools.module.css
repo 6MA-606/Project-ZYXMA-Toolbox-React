@@ -1,36 +1,24 @@
-.content-header {
+.contentHeader {
     font-size: 3.75vw;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 1vw;
 }
 
-.option {
-    margin: 20px 0 20px 0;
+.content {
+    margin: 0 20px 0 20px;
 }
 
-label {
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
+.toping div {
+    margin: 15px 0 15px 0;
 }
 
-input[type="text"] {
+#qr-input {
     border: 1px solid #aaaaaa;
     border-radius: 5px;
     padding: 5px;
 }
 
-input[type="color"] {
-    border: 0;
-    padding: 0px;
-    width: 0;
-    height: 0;
-    background-color: white;
-    display: inline;
-    position: absolute;
-    opacity: 0;
-}
-
-.success-btn {
+.successBtn {
     font-size: 15px;
     color: #ffffff;
     background-color: #00aa03;
@@ -41,13 +29,13 @@ input[type="color"] {
     transition: 0.25s;
 }
 
-.success-btn:hover {
+.successBtn:hover {
     color: #ffffff;
     background-color: #008302;
     border: 1px solid #007902;
 }
 
-.warning-btn {
+.warningBtn {
     font-size: 15px;
     color: #000000;
     background-color: #ffd900;
@@ -58,13 +46,13 @@ input[type="color"] {
     transition: 0.25s;
 }
 
-.warning-btn:hover {
+.warningBtn:hover {
     color: #000000;
     background-color: #ddbc00;
     border: 1px solid #d6b600;
 }
 
-#qr-download {
+.downloadBtn {
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
@@ -77,24 +65,13 @@ input[type="color"] {
     transition: 0.25s;
 }
 
-#qr-download:hover {
+.downloadBtn:hover {
     color: #000000;
     background-color: #888888;
     border: 1px solid #6d6d6d;
 }
 
-#qr-image {
+.qrImage {
     margin: 15px;
     box-shadow: #00000044 6px 6px 10px 1px;
-}
-
-#qr-customColorPicker,
-#qr-customBgcolorPicker {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    border-radius: 20px;
-    transform: translate(-28px, 2.5px);
-    cursor: pointer;
-    border: 1px solid #aaaaaa;
 }

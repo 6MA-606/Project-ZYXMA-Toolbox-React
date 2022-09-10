@@ -3,19 +3,19 @@ import $ from 'jquery';
 import HeaderText from './tools/headertext/main';
 import QRCode from './tools/qrcode/main';
 
-$(function () {
+// $(function () {
+//     $('#HeaderText').hide();
+//     $('#list_1').on('click', () => {
+//         $('#QRCode').hide();
+//         $('#HeaderText').show();
+//     });
 
-    $('#list_1').on('click', () => {
-        $('#QRCode').hide();
-        $('#HeaderText').show();
-    });
-
-    $('#list_2').on('click', () => {
-        $('#HeaderText').hide();
-        $('#QRCode').show();
-    });
+//     $('#list_2').on('click', () => {
+//         $('#HeaderText').hide();
+//         $('#QRCode').show();
+//     });
     
-});
+// });
 
 function App() {
     return (
@@ -35,7 +35,7 @@ function App() {
                 <div className="content">
                     {/* <iframe title="QRcode" src="./tools/qrcode/qrcode.html" width="100%" id="content" style={{height: '97vh', overflow: 'auto'}}></iframe> */}
                     <HeaderText />
-                    <QRCode />
+                    {/* <QRCode /> */}
                 </div>
             </div>
         </div>

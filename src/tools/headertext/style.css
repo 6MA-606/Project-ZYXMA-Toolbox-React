@@ -13,28 +13,10 @@
     flex: 50%;
 }
 
-label,
-#text-shadow-ui span,
-#font-size {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-label {
-    cursor: pointer;
-}
-
 input[type="text"] {
     border: 1px solid #aaaaaa;
     border-radius: 5px;
     padding: 5px;
-}
-
-select {
-    border: 1px solid #aaaaaa;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 input[type="color"] {
@@ -59,13 +41,6 @@ input[type="color"] {
     transform: translate(-25px, 2.5px);
     cursor: pointer;
     border: 1px solid #aaaaaa;
-}
-
-input[type="checkbox"] {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    transform: translate(-6px, 3px);
 }
 
 .tool-box {
@@ -124,7 +99,7 @@ input[type="checkbox"] {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 955px) {
     .content-feature {
         flex-wrap: wrap;
     }

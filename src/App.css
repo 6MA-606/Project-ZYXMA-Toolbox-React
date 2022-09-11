@@ -13,33 +13,60 @@ font {
   height: 98vh;
 }
 
-.sidenav {
-  flex: 15%;
-  overflow-y: auto;
+#header {
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #aaaaaa;
+  flex: 8vh;
+}
+
+#header div {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5vw;
+  margin: 1vh 0 1vh 1vw;
+}
+
+.content-feature {
+  background-color: #f9f9f9;
+  padding-left: 1vw;
+  flex: 92vh;
 }
 
 .content {
   flex: 85%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav {
+  flex: 15%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #cccccc;
 }
 
 .sidenav-header {
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  padding: 10px 0 10px 0;
   background-color: #f0f0f0;
   border-bottom: 2px solid #aaaaaa;
+  flex: 8vh;
+}
+
+.sidenav-header div {
+  margin-top: 2vh;
+  font-size: 1.7vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 .sidenav-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #f9f9f9;
+  flex: 92vh;
 }
 
 .sidenav-list .sidenav-button {
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
   margin-top: 20px;
   cursor: pointer;
   transition: 0.5s;
@@ -49,10 +76,89 @@ font {
   text-shadow: #00000071 0px 0px 7px;
 }
 
+#slidenavBtn {
+  position: absolute;
+  z-index: 5;
+  display: none;
+  transition: 0.5s;
+  border: 1px solid #aaaaaa;
+  border-radius: 0 50px 50px 0;
+  background-color: #f0f0f0;
+  top: 25px;
+  width: 25px;
+  height: 50px;
+
+}
+
+#slidenav {
+  display: none;
+}
+
+#slidenav .slidenav-header,
+#slidenav .slidenav-header a {
+  padding: 8px 0px 8px 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+#slidenav .slidenav-header {
+  border-bottom: 2px solid #aaaaaa;
+  background-color: #f0f0f0;
+}
+
+#slidenav .slidenav-button {
+  padding: 8px 0px 8px 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+#slidenav .slidenav-button:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
 @media (max-width: 800px) {
   .sidenav {
       width: 0px;
       flex: 0%;
       display: none;
+  }
+
+  .flex_1, .flex_2, .noflex {
+    transform: scale(0.9);
+  }
+
+  #header div {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 6vw;
+    margin: 1vh 0 1vh 5vw;
+  }
+
+  #slidenavBtn {
+    display: inline-block;
+  }
+
+  #slidenav {
+    display: block;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    padding-top: 0px;
+    transition: 0.5s;
+    border-right: 1px solid #aaaaaa;
+    opacity: 95%;
   }
 }

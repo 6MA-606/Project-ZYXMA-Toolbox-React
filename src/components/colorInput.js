@@ -4,9 +4,14 @@ import styles from './input.module.css';
 class ColorInput extends React.Component {
     constructor(props) {
         super(props);
-        const {label, id, base} = props;
+        const {label, id, className, base} = props;
 
-        this.state = { label: label, value: base, id: id };
+        this.state = {
+            label: label,
+            value: base,
+            id: id,
+            className: className
+        };
         this.change = this.handleChange.bind(this);
     }
 
@@ -15,12 +20,15 @@ class ColorInput extends React.Component {
     }
 
     render() {
+
+        const refClassName = text => (text == undefined || text == '') ? '' : ' ' + text;
+
         return (
             
-            <div>
+            <div id={ this.state.id + 'Block'}>
                 <label className={ styles.label } htmlFor={ this.state.id }>{ this.state.label }</label>
-                <input className={ styles.input } type='text' value={ this.state.value } onChange={ this.change } id={ this.state.id } />
-                <input className={ styles.input } type='color' value={ this.state.value } onChange={ this.change } id={ this.state.id + 'Picker' }/>
+                <input className={ styles.input + refClassName(this.state.className) } type='text' value={ this.state.value } onChange={ this.change } id={ this.state.id + 'Input'} />
+                <input className={ styles.input + refClassName(this.state.className) } type='color' value={ this.state.value } onChange={ this.change } id={ this.state.id + 'Picker' } />
                 <label htmlFor={ this.state.id + 'Picker' }>
                     <span className={ styles.customColorPicker } style={{ backgroundColor: this.state.value }}></span>
                 </label>

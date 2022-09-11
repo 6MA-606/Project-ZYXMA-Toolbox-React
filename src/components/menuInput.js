@@ -24,13 +24,13 @@ export class MenuInput extends React.Component {
     render() {
         this.state.display = this.state.toggleButton ? "inline" : "none"
         return (
-            <div>
+            <div id={ this.state.id + 'Block'}>
                 <label className={ styles.label } htmlFor={ this.state.id }>{ this.state.label }</label>
-                <select id={ this.state.id } className={ styles.select } disabled={ this.state.disabled }>
+                <select id={ this.state.id + 'List'} className={ styles.select } disabled={ this.state.disabled }>
                     { this.props.children }
                 </select>
                 &nbsp;
-                <input className={ styles.input } type="checkbox" onChange={ this.change } style={{display: this.state.display }} defaultChecked />
+                <input id={ this.state.id + 'Toggle'} className={ styles.input } type="checkbox" onChange={ this.change } style={{display: this.state.display }} defaultChecked />
             </div>
         );
     }

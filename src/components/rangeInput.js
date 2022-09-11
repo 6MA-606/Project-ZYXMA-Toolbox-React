@@ -18,7 +18,7 @@ class RangeInput extends React.Component {
         let showValue =  this.state.unit != undefined ? this.state.value + this.state.unit : '';
 
         return (
-            <div>
+            <div id={ this.state.id + 'Block'}>
                 <label className={ styles.label } htmlFor={ this.state.id }>{ this.state.label }</label>
                 <input id={ this.state.id } type="range" min={ this.state.min } max={ this.state.max } onChange={ this.change } value={ this.state.value } />
                 <span className={ styles.label }> { showValue }</span>

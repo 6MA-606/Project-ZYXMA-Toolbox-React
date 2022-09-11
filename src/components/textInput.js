@@ -15,10 +15,11 @@ class TextInput extends React.Component {
     }
 
     render() {
+        const refValue = data => (data == undefined || data == '') ? '' : data;
         return (
-            <div>
+            <div id={ this.state.id + 'Block'}>
                 <label htmlFor={ this.state.id }>{ this.state.label }</label>
-                <input id={ this.state.id } className={styles.input} type="text" placeholder={ this.state.placeholder } onChange={ this.change } value={ this.state.value }/>
+                <input id={ this.state.id } className={styles.input} type="text" placeholder={ this.state.placeholder } onChange={ this.change } value={ refValue(this.state.value) }/>
             </div>
         );
     }

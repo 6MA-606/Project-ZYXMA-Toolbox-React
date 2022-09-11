@@ -38,8 +38,8 @@ function QRCode() {
         let parameters;
         
         let input = $('#qr-input');
-        let colorInput = $('#qr-color');
-        let bgcolorInput = $('#qr-bgcolor');
+        let colorInput = $('.qr-color');
+        let bgcolorInput = $('.qr-bgcolor');
         let button = $('#qr-submit');
         let download = $('#qr-download');
         
@@ -69,14 +69,12 @@ function QRCode() {
     }
 
     return (
-        <div id="QRCode">
-            <span className={ styles.contentHeader }>QRcode generator</span>
-            <hr style={{ border: "1px solid #aaaaaa", margin: "5px 5vw px 1vw" }} />
-            <div className={ styles.content }>
+        <div id="QRCode" className="content-feature" style={{ display: 'block' }}>
+            <div className={ styles.toolbox + ' ' + styles.toping + ' noflex'}>
                 <div className={ styles.toping }>
                     <TextInput id="qr-input" placeholder="Link or text here" />
-                    <ColorInput label="Color" id="qr-color" base="#000000" />
-                    <ColorInput label="Background Color" id="qr-bgcolor" base="#ffffff" />
+                    <ColorInput label="Color: " className="qr-color" id="qr-color" base="#000000" />
+                    <ColorInput label="Background Color: " className="qr-bgcolor" id="qr-bgcolor" base="#ffffff" />
                 </div>
                 <button id="qr-submit" onClick={ qrRequest } className={ buttonStyle }>Generate</button>
                 <a href={ downloadUrl } target="_blank" rel="noreferrer" id="qr-download" className={ styles.downloadBtn } style={{display: "none"}}><em className="fa fa-download"></em> Download</a>

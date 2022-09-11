@@ -2,6 +2,10 @@
     font-size: 3.75vw;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 1vw;
+    background-color: #f0f0f0;
+    padding: 10px;
+    z-index: 5;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 .content-feature {
@@ -13,38 +17,13 @@
     flex: 50%;
 }
 
-input[type="text"] {
-    border: 1px solid #aaaaaa;
-    border-radius: 5px;
-    padding: 5px;
+#text-shadow-ui {
+    margin: 10px 0 10px 4vw;
 }
 
-input[type="color"] {
-    border: 0;
-    padding: 0px;
-    width: 0;
-    height: 0;
-    background-color: white;
-    display: inline;
-    position: absolute;
-    opacity: 0;
-}
-
-#custom-color-picker,
-#custom-shadow-color-picker,
-#custom-preview-bg {
-    width: 20px;
-    height: 20px;
-    background-color: rgb(0, 0, 0);
-    position: absolute;
-    border-radius: 20px;
-    transform: translate(-25px, 2.5px);
-    cursor: pointer;
-    border: 1px solid #aaaaaa;
-}
-
-.tool-box {
-    margin: 2vh 0 0 1vw;
+#text-decoration-input {
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .css-terminal, .html-terminal{
@@ -81,11 +60,12 @@ input[type="color"] {
     overflow: auto;
     border-radius: 10px;
     background-color: #ffffff;
+    border: 1px solid #aaaaaa;
 }
 
 .preview-label {
     padding: 10px;
-    display: inline-block;
+    display: flex;
     font-family: Arial, Helvetica, sans-serif;
     color: #505050;
 }
@@ -101,6 +81,10 @@ input[type="color"] {
 
 @media (max-width: 955px) {
     .content-feature {
-        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    
+    .preview {
+        width: 96%;
     }
 }

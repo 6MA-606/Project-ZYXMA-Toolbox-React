@@ -14,8 +14,9 @@
     width: 0;
     height: 0;
     background-color: white;
+    transform: translate(0px, -13px);
     display: inline;
-    position: absolute;
+    position: relative;
     opacity: 0;
 }
 
@@ -30,16 +31,15 @@
     border: 1px solid #aaaaaa;
     border-radius: 5px;
     padding: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .customColorPicker {
     width: 20px;
     height: 20px;
-    position: fixed;
+    position: relative;
+    display: inline-block;
     border-radius: 20px;
-    transform: translate(-28px, 2.5px);
+    transform: translate(-25px, 6.5px);
     cursor: pointer;
     border: 1px solid #aaaaaa;
 }

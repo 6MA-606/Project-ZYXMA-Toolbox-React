@@ -21,7 +21,7 @@ class ColorInput extends React.Component {
 
     render() {
 
-        const refClassName = text => (text == undefined || text == '') ? '' : ' ' + text;
+        const refClassName = text => (text === undefined || text === '') ? '' : ' ' + text;
 
         return (
             

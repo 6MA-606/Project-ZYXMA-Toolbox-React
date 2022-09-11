@@ -15,7 +15,7 @@ class TextInput extends React.Component {
     }
 
     render() {
-        const refValue = data => (data == undefined || data == '') ? '' : data;
+        const refValue = data => (data === undefined || data === '') ? '' : data;
         return (
             <div id={ this.state.id + 'Block'}>
                 <label htmlFor={ this.state.id }>{ this.state.label }</label>

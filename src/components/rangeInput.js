@@ -15,7 +15,7 @@ class RangeInput extends React.Component {
     }
 
     render() {
-        let showValue =  this.state.unit != undefined ? this.state.value + this.state.unit : '';
+        let showValue =  this.state.unit !== undefined ? this.state.value + this.state.unit : '';
 
         return (
             <div id={ this.state.id + 'Block'}>

@@ -140,9 +140,9 @@ function HeaderText() {
         });
 
         shadowColorInput.on('input', function() {
-            $('#opacity-inputBlock').css('opacity', shadowColorInput.val()[0] != '#' ? '50%' : '100%');
-            opacity_input.prop('disabled', shadowColorInput.val()[0] != '#' ? true : false);
-            hex_opacity_value = shadowColorInput.val()[0] != '#' ? '' : decimalToHex(Math.ceil(opacity_input.val() * 2.55), 2);
+            $('#opacity-inputBlock').css('opacity', shadowColorInput.val()[0] !== '#' ? '50%' : '100%');
+            opacity_input.prop('disabled', shadowColorInput.val()[0] !== '#' ? true : false);
+            hex_opacity_value = shadowColorInput.val()[0] !== '#' ? '' : decimalToHex(Math.ceil(opacity_input.val() * 2.55), 2);
             setShadow(textShadow(shadowColorInput.val()));
         });
     
@@ -204,17 +204,22 @@ function HeaderText() {
             if (lineThrough.prop('checked')) {
                 dec_style += overline.prop('checked') || underline.prop('checked') ? ' line-through' : 'line-through';
             }
-            if (dec_style == '') {
+            if (dec_style === '') {
                   dec_style = 'none';
              }
             $('#css-text-decoration').text(dec_style);
             preview_text.css('text-decoration', dec_style);
         }
     
-        let previewBg = $('.previewBg');
+        let previewBgPicker = $('#previewBgPicker');
+        let previewBgInput = $('#previewBgInput');
         let previewBox = $('#preview-box');
-        previewBg.on('input', function() {
-            previewBox.css('background-color', previewBg.val());
+        previewBgPicker.on('input', function() {
+            previewBox.css('background-color', previewBgPicker.val());
+        });
+
+        previewBgInput.on('input', function() {
+            previewBox.css('background-color', previewBgInput.val());
         });
     });
 

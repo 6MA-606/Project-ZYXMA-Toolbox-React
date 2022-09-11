@@ -19,10 +19,12 @@ export class MenuInput extends React.Component {
 
     handleChange(e) {
         this.setState({ disabled: !e.target.checked });
-    }  
+    }
 
     render() {
-        this.state.display = this.state.toggleButton ? "inline" : "none"
+
+        const checkbox = this.state.toggleButton ? (<input id={ this.state.id + 'Toggle'} className={ styles.input } type="checkbox" onChange={ this.change } defaultChecked />) : '';
+        
         return (
             <div id={ this.state.id + 'Block'}>
                 <label className={ styles.label } htmlFor={ this.state.id }>{ this.state.label }</label>
@@ -30,7 +32,7 @@ export class MenuInput extends React.Component {
                     { this.props.children }
                 </select>
                 &nbsp;
-                <input id={ this.state.id + 'Toggle'} className={ styles.input } type="checkbox" onChange={ this.change } style={{display: this.state.display }} defaultChecked />
+                { checkbox }
             </div>
         );
     }

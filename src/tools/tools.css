@@ -13,10 +13,6 @@
     flex-wrap: nowrap;
 }
 
-.content-feature .flex_1,.flex_2 {
-    flex: 50%;
-}
-
 #text-shadow-ui {
     margin: 10px 0 10px 4vw;
 }

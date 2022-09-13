@@ -1,11 +1,11 @@
-import './style.css';
+import '../tools.css';
 import styles from '../tools.module.css';
 import $ from 'jquery';
 import TextInput from '../../components/textInput';
 import RangeInput from '../../components/rangeInput';
 import { MenuInput, MenuList } from '../../components/menuInput';
 import ColorInput from '../../components/colorInput';
-import ChackboxInput from '../../components/checkboxInput';
+import CheckboxInput from '../../components/checkboxInput';
 import { useState } from 'react';
 
 function HeaderText() {
@@ -238,7 +238,7 @@ function HeaderText() {
                         <MenuList label="Segoe UI" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" />
                     </MenuInput>
                     <ColorInput label="Color: " id="color" className="color" base="#000000" />
-                    <ChackboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
+                    <CheckboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
                     <div id="text-shadow-ui" style={{ display: 'none' }}>
                         <RangeInput label="x distance: " id="hs-input" min="-50" max="50" value="0" visibleValue="px" />
                         <RangeInput label="y distance: " id="vs-input" min="-50" max="50" value="0" visibleValue="px" />
@@ -247,11 +247,11 @@ function HeaderText() {
                         <ColorInput label="Shadow color: " id="shadowColor" className="shadowColor" base="#000000" />
                     </div>
 
-                    <ChackboxInput label="Decoration: " labelDisplay="front" id="text-decoration-checkbox" />
+                    <CheckboxInput label="Decoration: " labelDisplay="front" id="text-decoration-checkbox" />
                     <span id="text-decoration-input" style={{ display: 'none' }}>
-                        <ChackboxInput label="overline&nbsp;" labelDisplay="behind" id="overline" className="decoration-list" />
-                        <ChackboxInput label="line-through&nbsp;" labelDisplay="behind" id="line-through" className="decoration-list" />
-                        <ChackboxInput label="underline&nbsp;" labelDisplay="behind" id="underline" className="decoration-list" />
+                        <CheckboxInput label="overline&nbsp;" labelDisplay="behind" id="overline" className="decoration-list" />
+                        <CheckboxInput label="line-through&nbsp;" labelDisplay="behind" id="line-through" className="decoration-list" />
+                        <CheckboxInput label="underline&nbsp;" labelDisplay="behind" id="underline" className="decoration-list" />
                     </span>
                 </div>
                 <br />

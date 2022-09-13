@@ -70,7 +70,7 @@ function QRCode() {
 
     return (
         <div id="QRCode" className="content-feature" style={{ display: 'block' }}>
-            <div className={ styles.toolbox + ' ' + styles.toping + ' noflex'}>
+            <div className={ styles.toolbox + ' ' + styles.toping + ' noflex' }>
                 <div className={ styles.toping }>
                     <TextInput id="qr-input" placeholder="Link or text here" />
                     <ColorInput label="Color: " className="qr-color" id="qr-color" base="#000000" />

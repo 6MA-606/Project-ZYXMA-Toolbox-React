@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './input.module.css';
 
-class ChackboxInput extends React.Component {
+class CheckboxInput extends React.Component {
     constructor(props) {
         super(props);
         const { label, labelDisplay, id, className, checked } = props;
@@ -40,4 +40,4 @@ class ChackboxInput extends React.Component {
     }
 }
 
-export default ChackboxInput;
+export default CheckboxInput;

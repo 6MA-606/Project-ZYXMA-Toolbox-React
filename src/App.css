@@ -10,7 +10,14 @@ font {
 .flex-container {
   display: flex;
   flex-direction: row;
-  height: 98vh;
+  height: 100vh;
+}
+
+.content {
+  flex: 85%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #header {
@@ -29,13 +36,6 @@ font {
   background-color: #f9f9f9;
   padding-left: 1vw;
   flex: 92vh;
-}
-
-.content {
-  flex: 85%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .sidenav {
@@ -61,7 +61,7 @@ font {
 
 .sidenav-list {
   background-color: #f9f9f9;
-  flex: 92vh;
+  flex: 88vh;
 }
 
 .sidenav-list .sidenav-button {
@@ -73,6 +73,23 @@ font {
 }
 
 .sidenav-list .sidenav-button:hover {
+  text-shadow: #00000071 0px 0px 7px;
+}
+
+.sidenav-footer {
+  flex: 4vh;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.sidenav-footer div {
+  color: #888888;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidenav-footer div:hover {
+  color: #666666;
   text-shadow: #00000071 0px 0px 7px;
 }
 

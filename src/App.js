@@ -1,8 +1,9 @@
 import './App.css';
 import $ from 'jquery';
+import { useState } from 'react';
 import HeaderText from './tools/headertext/main';
 import QRCode from './tools/qrcode/main';
-import { useState } from 'react';
+import AboutMe from './abouts/main';
 
 function App() {
 
@@ -20,6 +21,11 @@ function App() {
             setHeader(<div>QRCode Generator</div>);
             setContent(<QRCode />);
         });
+
+        $('.about_me').on('click', () => {
+            setHeader(<div>About me</div>);
+            setContent(<AboutMe />);
+        });
         
     });
 
@@ -27,7 +33,7 @@ function App() {
         let slidenav = $('#slidenav');
         let slidenavBtn = $('#slidenavBtn');
         
-        if (!(slidenav.css('width') === '250px')) {
+        if (slidenav.css('width') !== '250px') {
             slidenav.css('width', '250px')
             slidenavBtn.css('margin-left', '250px');
         } else {
@@ -65,6 +71,9 @@ function App() {
                             <span className="list_2">QRcode Generator</span>
                         </div>
                     </div>
+                    <span className='sidenav-footer'>
+                        <div className="about_me">About me</div>
+                    </span>
                 </div>
                 <div className="content">
                     <span id="header">

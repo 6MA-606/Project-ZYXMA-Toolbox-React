@@ -1,5 +1,5 @@
-import '../tools.css';
-import styles from '../tools.module.css';
+import headertext from './headertext.module.css';
+import tools from '../tools.module.css';
 import $ from 'jquery';
 import TextInput from '../../components/textInput';
 import RangeInput from '../../components/rangeInput';
@@ -173,7 +173,7 @@ function HeaderText() {
         }
     
         let decorationCheckbox = $('#text-decoration-checkbox');
-        let decoration_ui = $('#text-decoration-input');
+        let decoration_ui = $('#text-decoration-ui');
         let decorationList = $('.decoration-list');
         let overline = $('#overline');
         let underline = $('#underline');
@@ -224,44 +224,45 @@ function HeaderText() {
     });
 
     return (
-        <div id="HeaderText" className='content-feature'>
-            <div className="flex_1">
-                <div className={ styles.toolbox + ' ' + styles.toping }>
-                    <TextInput id="text-input" placeholder="Your text here" value="Your text here" />
-                    <RangeInput label="Font-size: " id="font-size-input" min="0" max="125" value="50" visibleValue="px" />
-                    <MenuInput label="Font Family: " id="font-families" toggleButton>
-                        <MenuList label="Arial" value="Arial, Helvetica, sans-serif" />
-                        <MenuList label="Courier New" value="'Courier New', Courier, monospace" />
-                        <MenuList label="Franklin Gothic Medium" value="'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" />
-                        <MenuList label="Gill Sans" value="'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" />
-                        <MenuList label="Lucida Sans" value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" />
-                        <MenuList label="Segoe UI" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" />
-                    </MenuInput>
-                    <ColorInput label="Color: " id="color" className="color" base="#000000" />
-                    <CheckboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
-                    <div id="text-shadow-ui" style={{ display: 'none' }}>
-                        <RangeInput label="x distance: " id="hs-input" min="-50" max="50" value="0" visibleValue="px" />
-                        <RangeInput label="y distance: " id="vs-input" min="-50" max="50" value="0" visibleValue="px" />
-                        <RangeInput label="blur radius: " id="blur-input" min="0" max="20" value="0" visibleValue="px" />
-                        <RangeInput label="opacity: " id="opacity-input" min="0" max="100" value="100" visibleValue="%" />
-                        <ColorInput label="Shadow color: " id="shadowColor" className="shadowColor" base="#000000" />
+        <div id="HeaderText" className={ headertext.flexContainer }>
+            <div style={{ flex: '40%' }}>
+                <div className={ tools.toolbox }>
+                    <div className={ tools.toping }>
+                        <TextInput id="text-input" placeholder="Your text here" value="Your text here" />
+                        <RangeInput label="Font-size: " id="font-size-input" min="0" max="125" value="50" visibleValue="px" />
+                        <MenuInput label="Font Family: " id="font-families" toggleButton>
+                            <MenuList label="Arial" value="Arial, Helvetica, sans-serif" />
+                            <MenuList label="Courier New" value="'Courier New', Courier, monospace" />
+                            <MenuList label="Franklin Gothic Medium" value="'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" />
+                            <MenuList label="Gill Sans" value="'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" />
+                            <MenuList label="Lucida Sans" value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" />
+                            <MenuList label="Segoe UI" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" />
+                        </MenuInput>
+                        <ColorInput label="Color: " id="color" className="color" base="#000000" />
+                        <CheckboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
+                        <div className={ headertext.textShadowUi } id="text-shadow-ui" style={{ display: 'none' }}>
+                            <RangeInput label="x distance: " id="hs-input" min="-50" max="50" value="0" visibleValue="px" />
+                            <RangeInput label="y distance: " id="vs-input" min="-50" max="50" value="0" visibleValue="px" />
+                            <RangeInput label="blur radius: " id="blur-input" min="0" max="20" value="0" visibleValue="px" />
+                            <RangeInput label="opacity: " id="opacity-input" min="0" max="100" value="100" visibleValue="%" />
+                            <ColorInput label="Shadow color: " id="shadowColor" className="shadowColor" base="#000000" />
+                        </div>
+                        <CheckboxInput label="Decoration: " labelDisplay="front" id="text-decoration-checkbox" />
+                        <span className={ headertext.textDecorationUi } id="text-decoration-ui" style={{ display: 'none' }}>
+                            <CheckboxInput label="overline&nbsp;" labelDisplay="behind" id="overline" className="decoration-list" />
+                            <CheckboxInput label="line-through&nbsp;" labelDisplay="behind" id="line-through" className="decoration-list" />
+                            <CheckboxInput label="underline&nbsp;" labelDisplay="behind" id="underline" className="decoration-list" />
+                        </span>
                     </div>
-
-                    <CheckboxInput label="Decoration: " labelDisplay="front" id="text-decoration-checkbox" />
-                    <span id="text-decoration-input" style={{ display: 'none' }}>
-                        <CheckboxInput label="overline&nbsp;" labelDisplay="behind" id="overline" className="decoration-list" />
-                        <CheckboxInput label="line-through&nbsp;" labelDisplay="behind" id="line-through" className="decoration-list" />
-                        <CheckboxInput label="underline&nbsp;" labelDisplay="behind" id="underline" className="decoration-list" />
-                    </span>
                 </div>
                 <br />
                 <div className="code-terminal">
-                    <div className="css-terminal">
-                        <div className="terminal-label" style={{ textAlign: "left" }}>
+                    <div className={ headertext.css_terminal }>
+                        <div className={ headertext.terminalLabel } style={{ textAlign: "left" }}>
                             <span>CSS</span>
                             {/* <button onclick="cssCopy()">COPY</button> */}
                         </div>
-                        <div id="css-output">
+                        <div className={ headertext.css_output } id="css-output">
                             <code id="css-code">
                                 <span style={{ color: '#ffbf00' }}>.header-text &#123;<br /></span>
                                 <span style={{ marginLeft: "2em", color: '#cccccc' }}>font-size: </span>
@@ -301,11 +302,11 @@ function HeaderText() {
                     </div>
                     <br />
                     <br />
-                    <div className="html-terminal">
-                        <div className="terminal-label" style={{ textAlign: "left" }}>
+                    <div className={ headertext.html_terminal }>
+                        <div className={ headertext.terminalLabel } style={{ textAlign: "left" }}>
                             <span>HTML</span>
                         </div>
-                        <div id="html-output">
+                        <div className={ headertext.html_output } id="html-output">
                             <code>
                                 <span>
                                     <span style={{ color: '#cccccc' }}>&lt;</span><span style={{ color: '#ff5555' }}>span</span> <span style={{ color: '#ffbf00' }}>className</span><span style={{ color: '#00dddd' }}>=</span><span style={{ color: '#55dd55' }}>"header-text"</span><span style={{ color: '#cccccc' }}>&gt;</span>
@@ -317,14 +318,16 @@ function HeaderText() {
                     </div>
                 </div>
             </div>
-            <div className="preview flex_2" style={{ overflow: "hidden", backgroundColor: "#dddddd" }}>
-                <span className="preview-label">
-                    <ColorInput label="Preview&nbsp;&nbsp;&nbsp;" labelDisplay="front" id="previewBg" className="previewBg" base="#ffffff"/>
-                </span>
-                <div id="preview-box" style={{ backgroundColor: "#ffffff", width: "100%", height: "100%" }}>
-                    <span style={{ fontSize: '50px' }} id="text">
-                        Your text here
+            <div style={{ flex: '60%', textAlign: 'center' }}>
+                <div className={ headertext.preview + ' ' + tools.toolbox } style={{ overflow: "hidden", backgroundColor: "#dddddd" }}>
+                    <span className={ headertext.previewLabel }>
+                        <ColorInput label="Preview&nbsp;&nbsp;&nbsp;" labelDisplay="front" id="previewBg" className="previewBg" base="#ffffff"/>
                     </span>
+                    <div className={ headertext.previewBlock } id="preview-box" style={{ backgroundColor: "#ffffff", width: "100%", height: "100%" }}>
+                        <span className={ headertext.previewText } style={{ fontSize: '50px' }} id="text">
+                            Your text here
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

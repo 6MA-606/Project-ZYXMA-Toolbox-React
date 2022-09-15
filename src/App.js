@@ -4,6 +4,8 @@ import { useState } from 'react';
 import HeaderText from './tools/headertext/main';
 import QRCode from './tools/qrcode/main';
 import AboutMe from './abouts/main';
+import Playground from './tools/playground/main';
+
 
 function App() {
 
@@ -20,6 +22,11 @@ function App() {
         $('.list_2').on('click', () => {
             setHeader(<div>QRCode Generator</div>);
             setContent(<QRCode />);
+        });
+
+        $('.list_3').on('click', () => {
+            setHeader(<div>Playground</div>);
+            setContent(<Playground />);
         });
 
         $('.about_me').on('click', () => {
@@ -56,6 +63,9 @@ function App() {
                     <div className="slidenav-button">
                         <span className="list_2">QRcode Generator</span>
                     </div>
+                    <div className="slidenav-button">
+                        <span className="list_3">Playground</span>
+                    </div>
                 </div>
             </div>
             <div className="flex-container">
@@ -70,16 +80,21 @@ function App() {
                         <div className="sidenav-button">
                             <span className="list_2">QRcode Generator</span>
                         </div>
+                        <div className="sidenav-button">
+                            <span className="list_3">Playground</span>
+                        </div>
                     </div>
                     <span className='sidenav-footer'>
                         <div className="about_me">About me</div>
                     </span>
                 </div>
                 <div className="content">
-                    <span id="header">
+                    <span id="header" style={{ flex: '8vh' }}>
                         { header }
                     </span>
-                    { content }
+                    <div id="feature" style={{ flex: '92vh' }}>
+                        { content }
+                    </div>
                 </div>
             </div>
         </div>

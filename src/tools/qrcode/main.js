@@ -1,4 +1,4 @@
-import styles from '../tools.module.css';
+import tools from '../tools.module.css';
 import $ from 'jquery';
 import ColorInput from '../../components/colorInput';
 import TextInput from '../../components/textInput';
@@ -9,7 +9,7 @@ function QRCode() {
     const [imgUrl,setImgUrl] = useState('./img/default/qr-placeholder.png');
     const [downloadUrl,setDownloadUrl] = useState('./img/default/qr-placeholder.png');
 
-    const [buttonStyle,setButtonStyle] = useState(styles.successBtn);
+    const [buttonStyle,setButtonStyle] = useState(tools.successBtn);
 
     const hexToDecimal = hex => parseInt(hex, 16);
 
@@ -52,7 +52,7 @@ function QRCode() {
 
             parameters = `size=${parametersJson.size}&bgcolor=${parametersJson.backgroundColor}&color=${parametersJson.qrColor}&qzone=${parametersJson.padding}&data=${parametersJson.data}`; // Stitch Together all Paramenters
             button.text('Re-generate');
-            setButtonStyle(styles.warningBtn);
+            setButtonStyle(tools.warningBtn);
             download.show();
             setDownloadUrl(`https://api.qrserver.com/v1/create-qr-code/?${parameters}&download=1`);
             setImgUrl(`https://api.qrserver.com/v1/create-qr-code/?${parameters}`);
@@ -60,7 +60,7 @@ function QRCode() {
         } else {
 
             button.text('Generate');
-            setButtonStyle(styles.successBtn);
+            setButtonStyle(tools.successBtn);
             download.hide();
             setImgUrl('./img/default/qr-placeholder.png');
 
@@ -69,17 +69,17 @@ function QRCode() {
     }
 
     return (
-        <div id="QRCode" className="content-feature" style={{ display: 'block' }}>
-            <div className={ styles.toolbox + ' ' + styles.toping + ' noflex' }>
-                <div className={ styles.toping }>
+        <div id="QRCode" style={{ padding: '1vw' }}>
+            <div className={ tools.toolbox }>
+                <div className={ tools.toping }>
                     <TextInput id="qr-input" placeholder="Link or text here" />
                     <ColorInput label="Color: " className="qr-color" id="qr-color" base="#000000" />
                     <ColorInput label="Background Color: " className="qr-bgcolor" id="qr-bgcolor" base="#ffffff" />
+                    <button id="qr-submit" onClick={ qrRequest } className={ buttonStyle }>Generate</button>
                 </div>
-                <button id="qr-submit" onClick={ qrRequest } className={ buttonStyle }>Generate</button>
-                <a href={ downloadUrl } target="_blank" rel="noreferrer" id="qr-download" className={ styles.downloadBtn } style={{display: "none"}}><em className="fa fa-download"></em> Download</a>
+                <a href={ downloadUrl } target="_blank" rel="noreferrer" id="qr-download" className={ tools.downloadBtn } style={{display: "none"}}><em className="fa fa-download"></em> Download</a>
                 <br />
-                <img id="qr-image" className={ styles.qrImage } src={ imgUrl } alt="QRcode must generate here."></img>
+                <img id="qr-image" className={ tools.qrImage } src={ imgUrl } alt="QRcode must generate here."></img>
             </div>
         </div>
     );

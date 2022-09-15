@@ -23,7 +23,6 @@ font {
 #header {
   background-color: #f0f0f0;
   border-bottom: 2px solid #aaaaaa;
-  flex: 8vh;
 }
 
 #header div {
@@ -32,10 +31,8 @@ font {
   margin: 1vh 0 1vh 1vw;
 }
 
-.content-feature {
+#feature {
   background-color: #f9f9f9;
-  padding-left: 1vw;
-  flex: 92vh;
 }
 
 .sidenav {

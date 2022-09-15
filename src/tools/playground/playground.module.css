@@ -1,0 +1,39 @@
+.widget_1 {
+    background-color: #acacac;
+    width: 325px;
+    height: 230px;
+    margin: 2vw;
+    border-radius: 20px;
+    box-shadow: #00000044 6px 6px 10px 1px;
+    overflow: hidden;
+}
+
+.widget_1 .inner {
+    background-color: #242553;
+    width: 325px;
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.widget_1 .header {
+    margin: 5px;
+    font-size: larger;
+    color: rgb(166, 213, 255);
+    text-transform: uppercase;
+}
+
+.widget_1 .body {
+    text-align: center;
+    color: rgb(39, 39, 39);
+}
+
+.widget_1 .content {
+    margin: 5px;
+}
+
+.widget_1 .subContent {
+    color: rgb(224, 240, 255);
+}

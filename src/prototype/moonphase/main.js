@@ -25,7 +25,7 @@ function MoonInfo(props) {
         let rawdata = $(html).find('#moon-phase');
         const data_00 = (rawdata.text()).split('on');
         const data_01 = (data_00[data_00.length - 1].split('\t'));
-        removeItemAll(data_01, '')
+        removeItemAll(data_01, '');
 
         const data_10 = (rawdata.text()).split('new');
         const data_11 = (data_10[data_10.length - 2].split('on'));
@@ -49,25 +49,30 @@ function MoonInfo(props) {
 
 function MoonPhase() {
     let percent = MoonInfo({ luminated: true });
-    
+
     if (percent > 50) {
+        $('#bg').css('background', 'url("./img/general/half-moon1.jpg")');
         $('#left').css('width', 0 + 'px');
         $('#right').css('width', (percent - 50) + 'px');
     } else if (percent < 50) { 
-        $('#left').css('width', (percent - 50) + 'px');
+        $('#bg').css('background', 'url("./img/general/half-moon2.jpg")');
+        $('#left').css('width', (50 - percent) + 'px');
         $('#right').css('width', 0 + 'px');
     } else {
+        $('#bg').css('background', 'url("./img/general/half-moon.jpg")');
         $('#left').css('width', 0 + 'px');
         $('#right').css('width', 0 + 'px');
     }
 
     return (
-        <div style={{ width: "100px", height: "100px"}}>
-            <div className={ moon.moon } style={{ transform: 'rotate(180deg)', background: 'url("./img/general/moon.jpg")' }}>
-                <div className={ moon.moonDark1 }>
-                    <div className={ moon.moonLight } id="right" style={{ background: 'url("./img/general/half-moon.jpg")'}}></div>
+        <div>
+            <div className={ moon.moon } style={{ background: 'url("./img/general/half-moon.jpg")'}} id='bg'>
+                <div style={{ flex: '50%' }}>
+                    <div className={ moon.darkMoon } id="left"></div>
                 </div>
-                <div className={ moon.moonDark2 } id="left"></div>
+                <div style={{ flex: '50%' }}>
+                    <div className={ moon.lightMoon } style={{ background: 'url("./img/general/light-moon.jpg")' }} id="right"></div>
+                </div>
             </div>
         </div>
     );

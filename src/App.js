@@ -9,29 +9,58 @@ import Playground from './tools/playground/main';
 
 function App() {
 
-    const [header,setHeader] = useState(<div>Header Text Generator</div>);
-    const [content,setContent] = useState(<HeaderText />);
+    const [header,setHeader] = useState('');
+    const [content,setContent] = useState('');
+
+    function load() {
+        console.log('ready');
+        switch(localStorage.getItem('page')) {
+            case '101':
+                setHeader(<div>QRCode Generator</div>);
+                setContent(<QRCode />);
+                break;
+            case '102':
+                setHeader(<div>Playground</div>);
+                setContent(<Playground />);
+                break;
+            case '600':
+                setHeader(<div>About me</div>);
+                setContent(<AboutMe />);
+                break;
+            default:
+                setHeader(<div>Header Text Generator</div>);
+                setContent(<HeaderText />);
+        }
+    }
+
+    $( window ).on('load', load);
+
+
 
     $(function () {
-        
+
         $('.list_1').on('click', () => {
             setHeader(<div>Header Text Generator</div>);
             setContent(<HeaderText />);
+            localStorage.setItem('page', '100');
         });
-    
+
         $('.list_2').on('click', () => {
             setHeader(<div>QRCode Generator</div>);
             setContent(<QRCode />);
+            localStorage.setItem('page', '101');
         });
 
         $('.list_3').on('click', () => {
             setHeader(<div>Playground</div>);
             setContent(<Playground />);
+            localStorage.setItem('page', '102');
         });
 
         $('.about_me').on('click', () => {
             setHeader(<div>About me</div>);
             setContent(<AboutMe />);
+            localStorage.setItem('page', '600');
         });
         
     });
@@ -69,7 +98,7 @@ function App() {
                 </div>
             </div>
             <div className="flex-container">
-                <div className="sidenav">
+                <div className="sidenav noselect">
                     <span className="sidenav-header">
                         <div>ZYXMA-Toolbox</div>
                     </span>

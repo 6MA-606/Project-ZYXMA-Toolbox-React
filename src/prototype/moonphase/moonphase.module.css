@@ -1,10 +1,10 @@
-.moon {
+/* .moon {
     width:100px;
     height:100px;
     border-radius: 50px;
     background-color: #ffff6e;
     overflow: hidden;
-}
+} */
 
 .moonDark1 {
     width:50px;
@@ -30,3 +30,28 @@
     background-color: #ffff6e;
     display: block;
 }
+
+.moon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+}
+
+.lightMoon {
+    width: 50px;
+    height: 100px;
+    border-radius: 0 100% 100% 0;
+    display: inline-block;
+}
+
+.darkMoon {
+    width: 0px;
+    height: 100px;
+    border-radius: 100% 0 0 100%;
+    background-color: black;
+    display: block;
+    float: right;
+}
+

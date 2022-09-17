@@ -16,9 +16,9 @@ function Playground() {
                     <span className={ playground.subContent }>
                         <MoonInfo luminated />% illuminated
                     </span>
-                    <span className={ playground.subContent }>
-                        Next full moon is on <MoonInfo nextFullmoon />
-                    </span>
+                    {/* <span className={ playground.subContent }>
+                        Last full moon is on <MoonInfo nextFullmoon />
+                    </span> */}
                 </div>
                 <div className={ playground.body }>
                     Last update { (Date().split(' '))[4] }

@@ -76,8 +76,8 @@ function QRCode() {
                     <ColorInput label="Color: " className="qr-color" id="qr-color" base="#000000" />
                     <ColorInput label="Background Color: " className="qr-bgcolor" id="qr-bgcolor" base="#ffffff" />
                     <button id="qr-submit" onClick={ qrRequest } className={ buttonStyle }>Generate</button>
+                    &nbsp;<a href={ downloadUrl } target="_blank" rel="noreferrer" id="qr-download" className={ tools.downloadBtn } style={{display: "none"}}><em className="fa fa-download"></em> Download</a>        
                 </div>
-                <a href={ downloadUrl } target="_blank" rel="noreferrer" id="qr-download" className={ tools.downloadBtn } style={{display: "none"}}><em className="fa fa-download"></em> Download</a>
                 <br />
                 <img id="qr-image" className={ tools.qrImage } src={ imgUrl } alt="QRcode must generate here."></img>
             </div>

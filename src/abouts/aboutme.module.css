@@ -1,0 +1,53 @@
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 75%;
+}
+
+.flexLayer1_1 {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flexLayer1_2 {
+    flex: 50%;
+}
+
+.flexLayer2_1 {
+    flex: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.flexLayer2_2 {
+    flex: 50%;
+}
+
+.flexLayer3_1 {
+    flex: 50%;
+    background: url('./../../public/img/general/me.jpg');
+}
+
+.flexLayer3_2 {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flexLayer3_3 {
+    flex: 50%;
+}
+
+.flexLayer3_4 {
+    flex: 50%;
+}
+
+.flexLayer4_1 {
+    flex: 50%;
+}
+
+.flexLayer4_2 {
+    flex: 50%;
+}

@@ -48,6 +48,7 @@ function MoonInfo(props) {
 }
 
 function MoonPhase() {
+    // let percent = 100;
     let percent = MoonInfo({ luminated: true });
 
     if (percent > 50) {

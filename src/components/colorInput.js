@@ -13,6 +13,7 @@ class ColorInput extends React.Component {
             className: className
         };
         this.change = this.handleChange.bind(this);
+
     }
 
     handleChange(e) {

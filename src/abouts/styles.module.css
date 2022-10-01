@@ -1,10 +1,8 @@
-.profileBox {
-    background-color: #dddddd;
+.AboutMe {
     display: flex;
-    flex-direction: column;
-    padding: 0 50px 0 50px;
-    margin: 50px 0 0 50px;
-    border-radius: 20px;
+    flex-direction: row;
+    justify-content: center;
+    width: 75%;
 }
 
 .img {
@@ -12,4 +10,43 @@
     height: 15vw;
     display: inline-block;
     border-radius: 20px;
+}
+
+.profileBox {
+    display: flex;
+    flex-direction: column;
+    flex: 50%;
+}
+
+.profile_1 {
+    border-radius: 20px;
+    background-color: #E3E3E3;
+    flex: 50%;
+}
+
+.profile_2 {
+    border-radius: 20px;
+    background-color: #E3E3E3;
+    flex: 50%;
+}
+
+.bioBox {
+    border-radius: 20px;
+    background-color: #E3E3E3;
+    flex: 50%;
+}
+
+.motiveBox {
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    background-color: #E3E3E3;
+}
+
+.motive_1 {
+    flex: 50%;
+}
+
+.motive_2 {
+    flex: 50%;
 }

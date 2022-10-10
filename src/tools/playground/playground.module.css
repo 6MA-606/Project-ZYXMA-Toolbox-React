@@ -1,3 +1,11 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* Widget 1 */
+
 .widget_1 {
     background-color: #acacac;
     width: 325px;
@@ -36,4 +44,17 @@
 
 .widget_1 .subContent {
     color: rgb(224, 240, 255);
+}
+
+/* Widget 2 */
+
+.widget_2 {
+    /* background-color: #acacac; */
+    width: 300px;
+    height: 230px;
+    margin: 2vw;
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

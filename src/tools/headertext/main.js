@@ -51,6 +51,19 @@ function HeaderText() {
             preview_text.text(text_input.val());
         });
         
+        // let preview_text = document.querySelector('#text');
+        // let font_size = document.querySelector('#font-size');
+        // let font_size_input = document.querySelector('#font-size-input');
+        
+        // font_size_input.addEventListener("input", function() {
+
+        //     font_size.innerHTML = font_size_input.value + 'px';
+        //     document.querySelector('#css-font-size').innerHTML = font_size_input.value;
+        //     preview_text.style.fontSize = font_size_input.value + 'px';
+
+        // });
+        
+
         let font_size = $('#font-size');
         let font_size_input = $('#font-size-input');
         font_size_input.on('input', function() {
@@ -91,6 +104,13 @@ function HeaderText() {
             $('#css-color').text(colorInput.val());
             $('#css-color').css('background-color', colorInput.val());
             preview_text.css('color', colorInput.val());
+        });
+
+        let letSpaceInput = $('#letter-space-input');
+        letSpaceInput.on('input', function() {
+            $('#css-letSpace-section').css('display', letSpaceInput.val() < 1 ? 'none' : 'block');
+            $('#css-letSpace').text(letSpaceInput.val());
+            preview_text.css('letter-spacing', letSpaceInput.val() + 'px');
         });
     
         let textShadowCheckbox = $('#text-shadow-checkbox');
@@ -184,9 +204,10 @@ function HeaderText() {
                 setDecorate();
             } else {
                 decoration_ui.hide();
-                $('#css-text-decoration').text('text-decoration: none;');
+                $('#css-text-decoration').text(' none');
                 preview_text.css('text-decoration', 'none');
             }
+            $('#css-decoration-section').css('display', decorationCheckbox.prop('checked') ? 'block' : 'none');
         });
     
         decorationList.on('change', function() {
@@ -237,8 +258,10 @@ function HeaderText() {
                             <MenuList label="Gill Sans" value="'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" />
                             <MenuList label="Lucida Sans" value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" />
                             <MenuList label="Segoe UI" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" />
+                            <MenuList label="Times New Roman" value="'Times New Roman', Times, serif" />
                         </MenuInput>
                         <ColorInput label="Color: " id="color" className="color" base="#000000" />
+                        <RangeInput label="Letter-spacing: " id="letter-space-input" min="0" max="10" value="0" visibleValue="px" />
                         <CheckboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
                         <div className={ headertext.textShadowUi } id="text-shadow-ui" style={{ display: 'none' }}>
                             <RangeInput label="x distance: " id="hs-input" min="-50" max="50" value="0" visibleValue="px" />
@@ -280,6 +303,13 @@ function HeaderText() {
                                 <span id="css-color" style={{ backgroundColor: '#000000', borderRadius: '5px', padding: "0px 3px 0px 3px"}}>#000000</span>
                                 <span style={{ color: '#cccccc' }}>;</span>
                                 <br />
+                                <span id="css-letSpace-section" style={{ display: 'none' }}>
+                                    <span style={{ marginLeft: "2em", color: '#cccccc' }}>letter-spacing: </span>
+                                    <span id="css-letSpace" style={{ color: '#ffbf00' }}>0</span>
+                                    <span style={{ color: '#ff5555' }}>px</span>
+                                    <span style={{ color: '#cccccc' }}>;</span>
+                                    <br />
+                                </span>
                                 <span id="css-text-shadow" style={{ marginLeft: "2em", display: "none" }} >
                                     <span style={{ color: '#cccccc' }}>text-shadow: </span>
                                     <span id="css-text-shadow-color" style={{ color: '#ffffff', backgroundColor: '#000000', borderRadius: '5px', padding: "0px 3px 0px 3px"}}>#000000ff</span>
@@ -292,10 +322,12 @@ function HeaderText() {
                                     <span style={{ color: '#cccccc' }}>;</span>
                                 </span>
                                 <br id="css-shadow-br" style={{ display: "none" }} />
-                                <span style={{ marginLeft: "2em", color: '#cccccc'}}>text-decoration: </span>
-                                <span id="css-text-decoration" style={{ color: '#ffbf00'}}> none</span>
-                                <span style={{ color: '#cccccc'}}>;</span>
-                                <br />
+                                <div id="css-decoration-section" style={{ display: 'none' }}>
+                                    <span style={{ marginLeft: "2em", color: '#cccccc'}}>text-decoration: </span>
+                                    <span id="css-text-decoration" style={{ color: '#ffbf00'}}> none</span>
+                                    <span style={{ color: '#cccccc'}}>;</span>
+                                    <br />
+                                </div>
                                 <span style={{ color: '#ffbf00' }}>&#125;</span>
                             </code>
                         </div>

@@ -5,6 +5,7 @@ import HeaderText from './tools/headertext/main';
 import QRCode from './tools/qrcode/main';
 import AboutMe from './abouts/main';
 import Playground from './tools/playground/main';
+import ElementBox from './tools/box/main';
 
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
                 setContent(<QRCode />);
                 break;
             case '102':
+                setHeader(<div>Element Box Generator</div>);
+                setContent(<ElementBox />);
+                break;
+            case '103':
                 setHeader(<div>Playground</div>);
                 setContent(<Playground />);
                 break;
@@ -52,9 +57,15 @@ function App() {
         });
 
         $('.list_3').on('click', () => {
+            setHeader(<div>Element Box Generator</div>);
+            setContent(<ElementBox />);
+            localStorage.setItem('page', '102');
+        });
+
+        $('.list_4').on('click', () => {
             setHeader(<div>Playground</div>);
             setContent(<Playground />);
-            localStorage.setItem('page', '102');
+            localStorage.setItem('page', '103');
         });
 
         $('.about_me').on('click', () => {
@@ -93,7 +104,10 @@ function App() {
                         <span className="list_2">QRcode Generator</span>
                     </div>
                     <div className="slidenav-button">
-                        <span className="list_3">Playground</span>
+                        <span className="list_3">Element Box</span>
+                    </div>
+                    <div className="slidenav-button">
+                        <span className="list_4">Playground</span>
                     </div>
                 </div>
             </div>
@@ -110,7 +124,10 @@ function App() {
                             <span className="list_2">QRcode Generator</span>
                         </div>
                         <div className="sidenav-button">
-                            <span className="list_3">Playground</span>
+                            <span className="list_3">Element Box</span>
+                        </div>
+                        <div className="sidenav-button">
+                            <span className="list_4">Playground</span>
                         </div>
                     </div>
                     <span className='sidenav-footer'>

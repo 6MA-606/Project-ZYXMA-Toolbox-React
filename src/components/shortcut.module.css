@@ -1,0 +1,20 @@
+.container {
+    width: 300px;
+    height: 70px;
+    /* margin: 2vw; */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    transition: .25s;
+    box-shadow: #00000044 6px 6px 10px 1px;
+}
+
+.container div {
+    flex: 230px;
+}
+
+.container:hover {
+    filter: saturate(1.5);
+    transform: scale(1.025);
+    cursor: pointer;
+}

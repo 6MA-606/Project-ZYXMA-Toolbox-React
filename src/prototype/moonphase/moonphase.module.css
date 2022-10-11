@@ -37,6 +37,17 @@
     border-radius: 50px;
     overflow: hidden;
     display: flex;
+    transition: .3s;
+}
+
+.moon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.moon:active {
+    transform: scale(0.9);
+    cursor: pointer;
 }
 
 .lightMoon {

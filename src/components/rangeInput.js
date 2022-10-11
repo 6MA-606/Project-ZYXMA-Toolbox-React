@@ -4,24 +4,39 @@ import styles from "./input.module.css";
 class RangeInput extends React.Component {
     constructor(props) {
         super(props);
-        const { label, id, min, max, value, visibleValue} = props;
+        const { label, id, min, max, value, visibleValue, className } = props;
 
-        this.state = { label: label, id: id, min: min, max: max, value: value, unit: visibleValue};
+        this.state = { 
+            label: label,
+            id: id,
+            className: className,
+            min: min,
+            max: max,
+            value: value,
+            unit: visibleValue
+        };
         this.change = this.handleChange.bind(this);
+        this.input = this.handleInput.bind(this);
     }
 
     handleChange(e) {
         this.setState({ value: e.target.value });
     }
 
+    handleInput(e) {
+        this.setState({ value: e.target.value });
+    }
+
     render() {
-        let showValue =  this.state.unit !== undefined ? this.state.value + this.state.unit : '';
+        let unit =  this.state.unit !== undefined ? this.state.unit : '';
 
         return (
-            <div id={ this.state.id + 'Block'}>
+            <div id={ this.state.id + 'Block' }>
                 <label className={ styles.label } htmlFor={ this.state.id }>{ this.state.label }</label>
                 <input id={ this.state.id } type="range" min={ this.state.min } max={ this.state.max } onChange={ this.change } value={ this.state.value } />
-                <span className={ styles.label }> { showValue }</span>
+                <span className={ styles.label }> 
+                    <input id={ this.state.id + 'Typing' } type="text" value={ this.state.value } className={ styles.rangeTyping } onChange={ this.input } />{ unit }
+                </span>
             </div>
         );
     }

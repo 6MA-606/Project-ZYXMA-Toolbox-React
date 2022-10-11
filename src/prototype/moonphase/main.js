@@ -65,6 +65,10 @@ function MoonPhase() {
         $('#right').css('width', 0 + 'px');
     }
 
+    // $('#bg').on('click', () => {
+    //     window.open('https://www.fullmoonphase.com/asia/thailand/bangkok.htm', '_blank');
+    // });
+
     return (
         <div>
             <div className={ moon.moon } style={{ background: 'url("./img/general/half-moon.jpg")'}} id='bg'>

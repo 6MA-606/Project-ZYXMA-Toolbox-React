@@ -8,6 +8,16 @@
     padding: 5px;
 }
 
+input[type="text"].rangeTyping {
+    width: 2.5em;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    background-color: #ffff;
+    font-size: 1em;
+    text-align: right;
+    margin: 0 2px;
+}
+
 .input[type="color"] {
     border: 0;
     padding: 0px;

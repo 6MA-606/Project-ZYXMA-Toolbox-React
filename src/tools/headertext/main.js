@@ -51,26 +51,18 @@ function HeaderText() {
             preview_text.text(text_input.val());
         });
         
-        // let preview_text = document.querySelector('#text');
-        // let font_size = document.querySelector('#font-size');
-        // let font_size_input = document.querySelector('#font-size-input');
-        
-        // font_size_input.addEventListener("input", function() {
-
-        //     font_size.innerHTML = font_size_input.value + 'px';
-        //     document.querySelector('#css-font-size').innerHTML = font_size_input.value;
-        //     preview_text.style.fontSize = font_size_input.value + 'px';
-
-        // });
-        
-
-        let font_size = $('#font-size');
+        // New update will refactor range input.
         let font_size_input = $('#font-size-input');
-        font_size_input.on('input', function() {
-            font_size.text(font_size_input.val() + 'px');
-            $('#css-font-size').text(font_size_input.val());
-            preview_text.css('font-size', font_size_input.val() + 'px');
-        });
+        let font_size_typing = $('#font-size-inputTyping');
+        let font_value;
+        function fontSizeUpdate() {
+            font_value = font_size_typing.val() > 125 ? font_size_typing.val() > 300 ? 300 : font_size_typing.val() : font_size_input.val();
+            font_size_typing.val(font_value);
+            $('#css-font-size').text(font_value);
+            preview_text.css('font-size', font_value + 'px');
+        }
+        font_size_input.on('input', fontSizeUpdate );
+        font_size_typing.on('change', fontSizeUpdate );
     
         let fontToggle = $('#font-familiesToggle');
         let fontList = $('#font-familiesList');

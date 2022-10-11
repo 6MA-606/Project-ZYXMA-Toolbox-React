@@ -17,7 +17,7 @@
 }
 
 .widget_1 .inner {
-    background-color: #242553;
+    background-image: linear-gradient(to bottom, #18193a, #3c3e7c);
     width: 325px;
     height: 200px; 
     display: flex;
@@ -50,12 +50,30 @@
 
 .widget_2 {
     /* background-color: #acacac; */
+    /* border: 1px solid; */
     width: 300px;
     height: 230px;
     margin: 2vw;
-    /* border: 1px solid; */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.widget_3 {
+    /* background-color: #acacac; */
+    /* border: 1px solid; */
+    width: 230px;
+    height: 230px;
+    margin: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.widget_3 div {
+    /* background-color: #acacac; */
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 

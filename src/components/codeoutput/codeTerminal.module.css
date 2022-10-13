@@ -1,0 +1,26 @@
+.css_terminal, .html_terminal{
+    margin-left: 1vw;
+    background-color: #dddddd;
+    display: inline-block;
+    border-radius: 10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.terminalLabel {
+    padding: 10px;
+}
+
+.terminal-label span {
+    color: #505050;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.css_output, .html_output {
+    color: #fff;
+    background-color: #505050;
+    padding: 10px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}

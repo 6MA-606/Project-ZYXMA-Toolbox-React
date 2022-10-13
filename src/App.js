@@ -14,7 +14,6 @@ function App() {
     const [content,setContent] = useState('');
 
     function load() {
-        console.log('ready');
         switch(localStorage.getItem('page')) {
             case '101':
                 setHeader(<div>QRCode Generator</div>);

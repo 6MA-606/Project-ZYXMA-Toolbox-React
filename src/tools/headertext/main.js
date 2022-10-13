@@ -6,11 +6,13 @@ import RangeInput from '../../components/rangeInput';
 import { MenuInput, MenuList } from '../../components/menuInput';
 import ColorInput from '../../components/colorInput';
 import CheckboxInput from '../../components/checkboxInput';
-import { useState } from 'react';
+import CodeTerminal from '../../components/codeoutput/codeTerminal';
+import CSSrule from '../../components/codeoutput/css/cssRule';
+import CSSproperty from '../../components/codeoutput/css/cssProperty';
 
 function HeaderText() {
 
-    const [font,setFont] = useState('Arial, Helvetica, sans-serif');
+    // const [font,setFont] = useState('Arial, Helvetica, sans-serif');
 
     function decimalToHex(d, padding) {
         let hex = Number(d).toString(16);
@@ -42,7 +44,7 @@ function HeaderText() {
         }
     }
 
-    $(function() {
+    $(() => {
         let preview_text = $('#text');
         let text_input = $('#text-input');
         let html_span = $('#html-span');
@@ -68,18 +70,17 @@ function HeaderText() {
         let fontList = $('#font-familiesList');
         fontToggle.on('change', function() {
             if (!fontToggle.prop('checked')) {
-                $('#css-font-family').hide();
-                $('#css-fontFamily-br').hide();
-                $('#css-font-family').css('margin-left', '0em');
+                $('#css-fontFam').hide();
+                // $('#css-font-family').css('margin-left', '0em');
             } else {
                 $('#css-font-family').show();
-                $('#css-fontFamily-br').show();
-                $('#css-font-family').css('margin-left', '2em');
+                // $('#css-font-family').css('margin-left', '2em');
             }
+            $('#css-fontFam').css('display', fontToggle.prop('checked') ? 'inline' : 'none')
         });
     
         fontList.on('change', function() {
-            setFont(fontList.val());
+            $('#css-fontFamVal').text(fontList.val());
             preview_text.css('font-family', fontList.val());
         });
     
@@ -99,12 +100,19 @@ function HeaderText() {
         });
 
         let letSpaceInput = $('#letter-space-input');
-        letSpaceInput.on('input', function() {
+        let letSpaceTyping = $('#letter-space-inputTyping');
+        let letSpaceValue;
+        
+        function letterSpaceUpdate() {
+            letSpaceValue = letSpaceTyping.val() > 10 ? letSpaceTyping.val() > 25 ? 25 : letSpaceTyping.val() : letSpaceInput.val();
+            letSpaceTyping.val(letSpaceValue);
             $('#css-letSpace-section').css('display', letSpaceInput.val() < 1 ? 'none' : 'block');
-            $('#css-letSpace').text(letSpaceInput.val());
-            preview_text.css('letter-spacing', letSpaceInput.val() + 'px');
-        });
-    
+            $('#css-letSpace').text(letSpaceValue);
+            preview_text.css('letter-spacing', letSpaceValue + 'px');
+        }
+        letSpaceInput.on('input', letterSpaceUpdate );
+        letSpaceTyping.on('change', letterSpaceUpdate );
+
         let textShadowCheckbox = $('#text-shadow-checkbox');
         let shadowColorPicker = $('#shadowColorPicker');
         let shadowColorInput = $('#shadowColorInput');
@@ -242,7 +250,7 @@ function HeaderText() {
                 <div className={ tools.toolbox }>
                     <div className={ tools.toping }>
                         <TextInput id="text-input" placeholder="Your text here" value="Your text here" />
-                        <RangeInput label="Font-size: " id="font-size-input" min="0" max="125" value="50" visibleValue="px" />
+                        <RangeInput label="Font-size: " id="font-size-input" min="0" max="125" value="50" visibleValue="px" canType />
                         <MenuInput label="Font Family: " id="font-families" toggleButton>
                             <MenuList label="Arial" value="Arial, Helvetica, sans-serif" />
                             <MenuList label="Courier New" value="'Courier New', Courier, monospace" />
@@ -253,7 +261,7 @@ function HeaderText() {
                             <MenuList label="Times New Roman" value="'Times New Roman', Times, serif" />
                         </MenuInput>
                         <ColorInput label="Color: " id="color" className="color" base="#000000" />
-                        <RangeInput label="Letter-spacing: " id="letter-space-input" min="0" max="10" value="0" visibleValue="px" />
+                        <RangeInput label="Letter-spacing: " id="letter-space-input" min="0" max="10" value="0" visibleValue="px" canType />
                         <CheckboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
                         <div className={ headertext.textShadowUi } id="text-shadow-ui" style={{ display: 'none' }}>
                             <RangeInput label="x distance: " id="hs-input" min="-50" max="50" value="0" visibleValue="px" />
@@ -271,6 +279,15 @@ function HeaderText() {
                     </div>
                 </div>
                 <br />
+
+                <CodeTerminal label="CSS">
+                    <CSSrule selector=".header-text">
+                        <CSSproperty name="font-size" defaultValue={{value: ["50"], unit: ["px"], id: ["css-font-size"]}} />
+                        <CSSproperty id="css-fontFam" name="font-family" defaultValue={{value: ["Arial, Helvetica, sans-serif"], id: ["css-fontFamVal"]}} />
+                        {/* <CSSproperty id="css-fontFam" name="font-family" defaultValue={{value: ["Arial, Helvetica, sans-serif"], type: ["color"], id: ["css-fontFamVal"]}} /> */}
+                    </CSSrule>
+                </CodeTerminal>
+
                 <div className="code-terminal">
                     <div className={ headertext.css_terminal }>
                         <div className={ headertext.terminalLabel } style={{ textAlign: "left" }}>
@@ -287,10 +304,11 @@ function HeaderText() {
                                 <br />
                                 <span id="css-font-family" style={{ marginLeft: "2em" }}>
                                     <span style={{ color: '#cccccc' }}>font-family: </span>
-                                    <span id="css-font-family-value" style={{ color: '#ffbf00' }}>{ font }</span>
+                                    <span id="css-font-family-value" style={{ color: '#ffbf00' }}></span>
                                     <span style={{ color: '#cccccc' }}>;</span>
                                 </span>
                                 <br id="css-fontFamily-br" />
+
                                 <span style={{ marginLeft: "2em", color: '#cccccc' }}>color: </span>
                                 <span id="css-color" style={{ backgroundColor: '#000000', borderRadius: '5px', padding: "0px 3px 0px 3px"}}>#000000</span>
                                 <span style={{ color: '#cccccc' }}>;</span>

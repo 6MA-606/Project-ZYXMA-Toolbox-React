@@ -9,6 +9,7 @@ import CheckboxInput from '../../components/checkboxInput';
 import CodeTerminal from '../../components/codeoutput/codeTerminal';
 import CSSrule from '../../components/codeoutput/css/cssRule';
 import CSSproperty from '../../components/codeoutput/css/cssProperty';
+import HTMLelement from '../../components/codeoutput/html/htmlElement';
 
 function HeaderText() {
 
@@ -47,7 +48,7 @@ function HeaderText() {
     $(() => {
         let preview_text = $('#text');
         let text_input = $('#text-input');
-        let html_span = $('#html-span');
+        let html_span = $('#html-outputText');
         text_input.on('input', function() {
             html_span.text(text_input.val());
             preview_text.text(text_input.val());
@@ -69,13 +70,6 @@ function HeaderText() {
         let fontToggle = $('#font-familiesToggle');
         let fontList = $('#font-familiesList');
         fontToggle.on('change', function() {
-            if (!fontToggle.prop('checked')) {
-                $('#css-fontFam').hide();
-                // $('#css-font-family').css('margin-left', '0em');
-            } else {
-                $('#css-font-family').show();
-                // $('#css-font-family').css('margin-left', '2em');
-            }
             $('#css-fontFam').css('display', fontToggle.prop('checked') ? 'inline' : 'none')
         });
     
@@ -123,15 +117,8 @@ function HeaderText() {
         let hex_opacity_value = 'ff';
         let shadow_ui = $('#text-shadow-ui')
         textShadowCheckbox.on('change', function() {
-            if (textShadowCheckbox.prop('checked')) {
-                shadow_ui.show();
-                $('#css-text-shadow').show();
-                $('#css-shadow-br').show();
-            } else {
-                shadow_ui.hide();
-                $('#css-text-shadow').hide();
-                $('#css-shadow-br').hide();
-            }
+            $('#css-text-shadow').css('display', textShadowCheckbox.prop('checked') ? 'inline' : 'none')
+            shadow_ui.css('display', textShadowCheckbox.prop('checked') ? 'block' : 'none')
             setShadow(textShadow(shadowColorInput.val()));
         });
     
@@ -177,12 +164,14 @@ function HeaderText() {
                     complete: color + hex_opacity_value + ' ' + hs_input.val() + 'px ' + vs_input.val() + 'px ' + blur_input.val() + 'px'
                 }
                 return shadow;
-            } else {
-                return '';
             }
+            return 'none';
         }
 
         function setShadow(shadow) {
+
+            if (shadow === 'none') return;
+
             $('#css-text-shadow-color').css('background-color', shadow.color);
             $('#css-text-shadow-color').css('color', textLight(shadow.color));
             $('#css-text-shadow-color').text(shadow.color + shadow.hex);
@@ -284,81 +273,18 @@ function HeaderText() {
                     <CSSrule selector=".header-text">
                         <CSSproperty name="font-size" defaultValue={{value: ["50"], unit: ["px"], id: ["css-font-size"]}} />
                         <CSSproperty id="css-fontFam" name="font-family" defaultValue={{value: ["Arial, Helvetica, sans-serif"], id: ["css-fontFamVal"]}} />
-                        {/* <CSSproperty id="css-fontFam" name="font-family" defaultValue={{value: ["Arial, Helvetica, sans-serif"], type: ["color"], id: ["css-fontFamVal"]}} /> */}
+                        <CSSproperty name="color" defaultValue={{value: ["#000000"], id: ["css-color"], type: ["color"]}} />
+                        <CSSproperty id="css-letSpace-section" name="letter-spacing" defaultValue={{value: ["0"], unit: ["px"], id: ["css-letSpace"]}} hide />
+                        <CSSproperty id="css-text-shadow" name="text-shadow" defaultValue={{value: ["#000000", 0, 0, 0], unit: ['', 'px', 'px', 'px'], id: ["css-text-shadow-color", "css-text-shadow-hs", "css-text-shadow-vs", "css-text-shadow-blur"], type: ["color"]}} hide />
+                        <CSSproperty id="css-decoration-section" name="text-decoration" defaultValue={{value: ["none"], id: ["css-text-decoration"]}} hide />
                     </CSSrule>
                 </CodeTerminal>
+                <br/>
+                <br/>
+                <CodeTerminal label="HTML">
+                    <HTMLelement name="span" id="html-output" className="header-text" innerText="Your text here"></HTMLelement>
+                </CodeTerminal>
 
-                <div className="code-terminal">
-                    <div className={ headertext.css_terminal }>
-                        <div className={ headertext.terminalLabel } style={{ textAlign: "left" }}>
-                            <span>CSS</span>
-                            {/* <button onclick="cssCopy()">COPY</button> */}
-                        </div>
-                        <div className={ headertext.css_output } id="css-output">
-                            <code id="css-code">
-                                <span style={{ color: '#ffbf00' }}>.header-text &#123;<br /></span>
-                                <span style={{ marginLeft: "2em", color: '#cccccc' }}>font-size: </span>
-                                <span id="css-font-size" style={{ color: '#ffbf00' }}>50</span>
-                                <span style={{ color: '#ff5555' }}>px</span>
-                                <span style={{ color: '#cccccc' }}>;</span>
-                                <br />
-                                <span id="css-font-family" style={{ marginLeft: "2em" }}>
-                                    <span style={{ color: '#cccccc' }}>font-family: </span>
-                                    <span id="css-font-family-value" style={{ color: '#ffbf00' }}></span>
-                                    <span style={{ color: '#cccccc' }}>;</span>
-                                </span>
-                                <br id="css-fontFamily-br" />
-
-                                <span style={{ marginLeft: "2em", color: '#cccccc' }}>color: </span>
-                                <span id="css-color" style={{ backgroundColor: '#000000', borderRadius: '5px', padding: "0px 3px 0px 3px"}}>#000000</span>
-                                <span style={{ color: '#cccccc' }}>;</span>
-                                <br />
-                                <span id="css-letSpace-section" style={{ display: 'none' }}>
-                                    <span style={{ marginLeft: "2em", color: '#cccccc' }}>letter-spacing: </span>
-                                    <span id="css-letSpace" style={{ color: '#ffbf00' }}>0</span>
-                                    <span style={{ color: '#ff5555' }}>px</span>
-                                    <span style={{ color: '#cccccc' }}>;</span>
-                                    <br />
-                                </span>
-                                <span id="css-text-shadow" style={{ marginLeft: "2em", display: "none" }} >
-                                    <span style={{ color: '#cccccc' }}>text-shadow: </span>
-                                    <span id="css-text-shadow-color" style={{ color: '#ffffff', backgroundColor: '#000000', borderRadius: '5px', padding: "0px 3px 0px 3px"}}>#000000ff</span>
-                                    <span id="css-text-shadow-hs" style={{ color: '#ffbf00' }}> 0</span>
-                                    <span style={{ color: '#ff5555' }}>px</span>
-                                    <span id="css-text-shadow-vs" style={{ color: '#ffbf00' }}> 0</span>
-                                    <span style={{ color: '#ff5555' }}>px</span>
-                                    <span id="css-text-shadow-blur" style={{ color: '#ffbf00' }}> 0</span>
-                                    <span style={{ color: '#ff5555' }}>px</span>
-                                    <span style={{ color: '#cccccc' }}>;</span>
-                                </span>
-                                <br id="css-shadow-br" style={{ display: "none" }} />
-                                <div id="css-decoration-section" style={{ display: 'none' }}>
-                                    <span style={{ marginLeft: "2em", color: '#cccccc'}}>text-decoration: </span>
-                                    <span id="css-text-decoration" style={{ color: '#ffbf00'}}> none</span>
-                                    <span style={{ color: '#cccccc'}}>;</span>
-                                    <br />
-                                </div>
-                                <span style={{ color: '#ffbf00' }}>&#125;</span>
-                            </code>
-                        </div>
-                    </div>
-                    <br />
-                    <br />
-                    <div className={ headertext.html_terminal }>
-                        <div className={ headertext.terminalLabel } style={{ textAlign: "left" }}>
-                            <span>HTML</span>
-                        </div>
-                        <div className={ headertext.html_output } id="html-output">
-                            <code>
-                                <span>
-                                    <span style={{ color: '#cccccc' }}>&lt;</span><span style={{ color: '#ff5555' }}>span</span> <span style={{ color: '#ffbf00' }}>className</span><span style={{ color: '#00dddd' }}>=</span><span style={{ color: '#55dd55' }}>"header-text"</span><span style={{ color: '#cccccc' }}>&gt;</span>
-                                    <span id="html-span">Your text here</span>
-                                    <span style={{ color: '#cccccc' }}>&lt;</span><span style={{ color: '#cccccc' }}>/</span><span style={{ color: '#ff5555' }}>span</span><span style={{ color: '#cccccc' }}>&gt;</span>
-                                </span>
-                            </code>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div style={{ flex: '60%', textAlign: 'center' }}>
                 <div className={ headertext.preview + ' ' + tools.toolbox } style={{ overflow: "hidden", backgroundColor: "#dddddd" }}>

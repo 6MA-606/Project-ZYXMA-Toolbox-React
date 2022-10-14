@@ -13,7 +13,7 @@ class CodeTerminal extends React.Component {
 
     render() {
         return (
-            <div className={ styles.css_terminal }>
+            <div className={ styles.terminal }>
                 <div className={ styles.terminalLabel } style={{ textAlign: "left" }}>
                     <span>{ this.state.label }</span>
                  </div>

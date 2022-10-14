@@ -30,7 +30,8 @@ class Shortcut extends React.Component {
         let styles = {
             backgroundColor: this.state.bgcolor,
             backgroundImage: this.state.bgimage,
-            backgroundSize: 'contain',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             display: 'flex',
             alignItems: 'center',
             width: this.state.icon ? '70px' : '300px'

@@ -1,3 +1,8 @@
+:root {
+  --mainColor: #f0f0f0; /*#f0f0f0 #333*/
+  --subColor: #f9f9f9; /*#f9f9f9 #444*/
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -31,7 +36,7 @@ font {
 }
 
 #header {
-  background-color: #f0f0f0;
+  background-color: var(--mainColor);
   border-bottom: 2px solid #aaaaaa;
 }
 
@@ -42,7 +47,7 @@ font {
 }
 
 #feature {
-  background-color: #f9f9f9;
+  background-color: var(--subColor);
 }
 
 .sidenav {
@@ -54,7 +59,7 @@ font {
 }
 
 .sidenav-header {
-  background-color: #f0f0f0;
+  background-color: var(--mainColor);
   border-bottom: 2px solid #aaaaaa;
   flex: 8vh;
 }
@@ -67,7 +72,7 @@ font {
 }
 
 .sidenav-list {
-  background-color: #f9f9f9;
+  background-color: var(--subColor);
   flex: 88vh;
 }
 

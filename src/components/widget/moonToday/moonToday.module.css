@@ -1,0 +1,39 @@
+.container {
+    background-color: #acacac;
+    width: 325px;
+    height: 230px;
+    margin: 2vw;
+    border-radius: 20px;
+    box-shadow: #00000044 6px 6px 10px 1px;
+    overflow: hidden;
+}
+
+.container .inner {
+    background-image: linear-gradient(to bottom, #18193a, #3c3e7c);
+    width: 325px;
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container .header {
+    margin: 5px;
+    font-size: larger;
+    color: rgb(166, 213, 255);
+    text-transform: uppercase;
+}
+
+.container .body {
+    text-align: center;
+    color: rgb(39, 39, 39);
+}
+
+.container .content {
+    margin: 5px;
+}
+
+.container .subContent {
+    color: rgb(224, 240, 255);
+}

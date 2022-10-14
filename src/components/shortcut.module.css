@@ -1,5 +1,5 @@
 .container {
-    height: 70px;
+    /* height: 70px; */
     /* margin: 2vw; */
     border-radius: 20px;
     overflow: hidden;
@@ -14,8 +14,12 @@
 
 .container:hover {
     filter: saturate(1.5);
-    transform: scale(1.025);
+    transform: scale(1.05);
     cursor: pointer;
+}
+
+.container:active {
+    transform: scale(0.95);
 }
 
 .container img {
@@ -24,4 +28,8 @@
 
 .container:hover img {
     transform: scale(1.2);
+}
+
+.container:active img {
+    transform: scale(0.8);
 }

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laibaht Link Converter</title>
+    <link rel="icon" href="./laibaht-ico.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+
+        // $(document).ready(function () {
+
+        //     let input = $('#input');
+
+        //     input.on('input', () => {
+        //         $('#tail').text( (input.val()).split('=')[1] );
+        //     });
+
+        // });
+
+        function load() {
+            let input = document.getElementById('input');
+            let array = [];
+            input.addEventListener('input', () => {
+                array = (input.value).split((input.value).indexOf('=') < 0 ? '/' : '=');
+                document.getElementById("tail").innerText = array[array.length - 1];
+            });
+            
+            let searchBox = document.getElementById('search-box');
+            let searchBtn = document.getElementById('search-btn');
+
+            function search() {
+                window.open("https://www.youtube.com/results?search_query=" + searchBox.value, "_blank")
+            }
+
+            searchBtn.addEventListener('click', search);
+
+            document.querySelector('#copy').addEventListener('click', () => {
+                navigator.clipboard.writeText(document.querySelector('#copy').innerText)
+                .then(() => {
+                    alert("Copied~!");
+                })
+                .catch(() => {
+                    
+                });
+            });
+        }
+
+        window.onload = load;
+
+    </script>
+
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background-color: #002;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            overflow: hidden;
+        }
+
+        .header-text {
+            font-size: 6vw;
+            color: #f1b900;
+            margin-bottom: 20px;
+        }
+
+        #input {
+            font-family: 'Varela Round', sans-serif;
+            color: #f1b900;
+            border: 2px solid #f1b900;
+            border-radius: 10px;
+            background-color: #002;
+            width: 400px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        #input:hover {
+            transform: scale(1.03);
+        }
+
+        #input:active {
+            transform: scale(0.97);
+        }
+
+        #search-box {
+            font-family: 'Varela Round', sans-serif;
+            color: #f1b900;
+            border: 2px solid #f1b900;
+            border-radius: 10px;
+            background-color: #002;
+            width: 200px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        #search-box:hover {
+            transform: scale(1.03);
+        }
+
+        #search-box:active {
+            transform: scale(0.97);
+        }
+
+        #search-btn {
+            font-family: 'Varela Round', sans-serif;
+            color: #002;
+            border: 2px solid #f1b900;
+            border-radius: 10px;
+            background-color: #f8d870;
+            width: 80px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        #search-btn:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        #search-btn:active {
+            transform: scale(0.97);
+        }
+
+        .container {
+            z-index: 1;
+            display: inline-block;
+            border: 2px solid #f1b90076;
+            border-radius: 30px;
+            padding: 20px;
+            background-color: #002;
+        }
+
+        .output {
+            margin: 20px 0;
+            font-family: 'Varela Round', sans-serif;
+            color: ghostwhite;
+            display: flex;
+        }
+
+        #tail {
+            font-family: 'Varela Round', sans-serif;
+            color: #002;
+            background-color: #f1b900;
+            border: 1.5px solid #c39600;
+            border-radius: 10px;
+            padding: 2px;
+            margin-left: 1px;
+        }
+
+        img {
+            z-index: 0;
+            transform: scale(1.1);
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        img:active {   
+            transform: scale(1);
+        }
+
+        .label {
+            padding: 2px 5px;
+            background-color: #f8d870;
+            color: #002;
+            border: 2px solid #f1b900;
+            border-radius: 10px;
+            margin-right: 5px;
+        }
+
+        .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+              -webkit-user-select: none; /* Safari */
+               -khtml-user-select: none; /* Konqueror HTML */
+                 -moz-user-select: none; /* Old versions of Firefox */
+                  -ms-user-select: none; /* Internet Explorer/Edge */
+                      user-select: none; /* Non-prefixed version, currently
+                                            supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        #copy {
+            display: inline;
+            padding: 4px 0;
+            transition: 0.25s;
+        }
+
+        #copy:hover {
+            background-color: #fff5;
+            cursor: pointer;
+        }
+
+        #copy:active {
+            background-color: #f8d8707f;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px) {
+            #input {
+                width: 80vw;
+                padding: 10px;
+                transition: 0.3s;
+            }
+
+            .output {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .output div {
+                margin: 3px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <span class="header-text noselect">Laibaht Link Converter</span>
+    <img class="noselect" src="https://cdn.discordapp.com/attachments/921967767253569557/1030549145544564796/laibaht.png" alt="laibaht" width="200px">
+    <div class="container">
+        <form onSubmit="JavaScript:search()" autocomplete="off" class="noselect">
+            <input type="text" class="noselect" id="search-box" placeholder="Search Music Here">
+            <button type="submit" class="noselect" id="search-btn">Search</button>
+        </form>
+    </div>
+    <br>
+    <div class="container">
+        <input type="text" class="noselect" id="input" placeholder="Youtube Link Here">
+        <div class="output"><div class="label noselect">Bot-Command</div><div id="copy">/play music:https://play.laibaht.ovh/watch?v=<span id="tail"></span></div></div>
+    </div>
+</body>
+</html>

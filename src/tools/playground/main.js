@@ -8,7 +8,7 @@ import playground from './playground.module.css';
 function Playground() {
     
     return (
-        <div id="Playground" className={ playground.container }>
+        <div id="Playground" className={ playground.container + " noselect"}>
             <MoonToday />
 
             <ShortcutGroup type="wide">
@@ -24,20 +24,21 @@ function Playground() {
             </ShortcutGroup>
 
             <ShortcutGroup type="icon">
-                <Shortcut thumbnail='./img/icon/spotify.png' bgcolor="#222" href="https://open.spotify.com/search" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/ig.png' bgimage="url('./img/icon/bg/ig_bg.jpg')" href="https://www.instagram.com" thumbnailInvert icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/facebook.png' bgcolor="#05a" href="https://www.facebook.com" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/youtube.png' bgcolor="#222" href="https://www.youtube.com" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/ilovepdf.png' bgcolor="#f8f8ff" href="https://www.ilovepdf.com" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/convertio.png' bgcolor="#f8f8ff" href="https://convertio.co" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/canva.png' bgimage="linear-gradient(to right bottom, #01c2cc, #6722c7)" href="https://www.canva.com" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/audo.png' bgcolor="#222" href="https://audo.ai" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/colorsupply.png' bgcolor="#f8f8ff" href="https://colorsupplyyy.com/app" icon></Shortcut>
+                <Shortcut thumbnail='./img/icon/spotify.png' bgcolor="#222" href="https://open.spotify.com/search" icon />
+                <Shortcut thumbnail='./img/icon/ig.png' bgimage="url('./img/icon/bg/ig_bg.jpg')" href="https://www.instagram.com" thumbnailInvert icon />
+                <Shortcut thumbnail='./img/icon/facebook.png' bgcolor="#05a" href="https://www.facebook.com" icon />
+                <Shortcut thumbnail='./img/icon/youtube.png' bgcolor="#222" href="https://www.youtube.com" icon />
             </ShortcutGroup>
 
             <ShortcutGroup type="icon">
-                <Shortcut thumbnail='./img/icon/htmlcolorcode.png' bgcolor="#f8f8ff" href="https://htmlcolorcodes.com" icon></Shortcut>
-                <Shortcut thumbnail='./img/icon/laibaht-ico.png' bgcolor="#336" href="./lazyFeature/laibaht/index.html" icon></Shortcut>
+                <Shortcut thumbnail='./img/icon/ilovepdf.png' bgcolor="#f8f8ff" href="https://www.ilovepdf.com" icon />
+                <Shortcut thumbnail='./img/icon/htmlcolorcode.png' bgcolor="#f8f8ff" href="https://htmlcolorcodes.com" icon tooltip="HTML Color Codes" />
+                <Shortcut thumbnail='./img/icon/laibaht-ico.png' bgcolor="#336" href="./lazyFeature/laibaht/index.html" icon tooltip="Laibaht Link Converter" />
+                <Shortcut thumbnail='./img/icon/overapi.png' bgcolor="#444850" href="https://overapi.com" icon tooltip="OverAPI" />
+                <Shortcut thumbnail='./img/icon/convertio.png' bgcolor="#f8f8ff" href="https://convertio.co" icon tooltip="Convertio"/>
+                <Shortcut thumbnail='./img/icon/canva.png' bgimage="linear-gradient(to right bottom, #01c2cc, #6722c7)" href="https://www.canva.com" icon />
+                <Shortcut thumbnail='./img/icon/audo.png' bgcolor="#222" href="https://audo.ai" icon tooltip="Audo"/>
+                <Shortcut thumbnail='./img/icon/colorsupply.png' bgcolor="#f8f8ff" href="https://colorsupplyyy.com/app" icon tooltip="Color Supply"/>
             </ShortcutGroup>
 
             {/* <AudioPlayer /> */}

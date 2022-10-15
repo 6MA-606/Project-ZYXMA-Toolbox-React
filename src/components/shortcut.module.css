@@ -33,3 +33,24 @@
 .container:active img {
     transform: scale(0.8);
 }
+
+.tooltiptext,.box:hover .tooltiptext:hover {
+    visibility: hidden;
+    opacity: 0%;
+    font-size: 0.75em;
+    position: absolute;
+    color: white;
+    background-color: #0007;
+    padding: 1px 3px;
+    border-radius: 5px;
+    transform: translateY(-40px);
+    transition: 0.25s;
+    z-index: 2;
+}
+
+.box:hover .tooltiptext {
+    visibility: visible;
+    transform: translateY(-48px);
+    opacity: 100%;
+    transition: .25s;
+}

@@ -4,7 +4,7 @@ import shortcut from './shortcut.module.css';
 class Shortcut extends React.Component {
     constructor(props) {
         super(props);
-        const { thumbnail, bgcolor, color, labelAlign, href, thumbnailInvert, icon, bgimage } = props;
+        const { thumbnail, bgcolor, color, labelAlign, href, thumbnailInvert, icon, bgimage, tooltip } = props;
 
         this.state = {
             thumbnail: thumbnail,
@@ -14,7 +14,8 @@ class Shortcut extends React.Component {
             align: labelAlign,
             href: href,
             thumbnailInvert: thumbnailInvert,
-            icon: icon
+            icon: icon,
+            tooltip: tooltip
         }
 
         this.onClick = this.onClick.bind(this);
@@ -33,6 +34,7 @@ class Shortcut extends React.Component {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             display: 'flex',
+            justifyContent: 'center',
             alignItems: 'center',
             width: this.state.icon ? '70px' : '300px'
         }
@@ -43,12 +45,21 @@ class Shortcut extends React.Component {
             </div>
         );
 
+
+        function tooltip(tooltip) {
+            if (tooltip !== undefined && tooltip !== '') {
+                return (<span className={ shortcut.tooltiptext }>{ tooltip }</span>);
+            }
+            return '';
+        }
+
         return (
-            <div className={ shortcut.container }
-                 onClick={ this.onClick } 
-                 style={ styles }>
-                <img src={ this.state.thumbnail } height="70px" weight="auto" alt="thumbnail missing" style={{ flex: '70px', filter: 'invert(' + invert + ')' }}/>
-                { this.state.icon ? '' : content }
+            <div className={ shortcut.box } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                { tooltip(this.state.tooltip) }
+                <div className={ shortcut.container } onClick={ this.onClick } style={ styles }>
+                    <img src={ this.state.thumbnail } height="70px" weight="auto" alt="thumbnail missing" style={{ flex: '70px', filter: 'invert(' + invert + ')' }}/>
+                    { this.state.icon ? '' : content }
+                </div>
             </div>
         );
     }

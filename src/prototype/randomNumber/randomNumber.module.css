@@ -3,4 +3,53 @@
     height: 70px;
     border-radius: 20px;
     background-color: #333;
+    overflow: hidden;
 }
+
+.settings {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    transition: 0.5s;
+}
+
+.settingBtn {
+    transform: translateX(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s;
+    user-select: none;;
+}
+
+.settingBtn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.settingBox {
+    width: 300px;
+    height: 70px;
+    background-color: rgb(255, 230, 0);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.settingPanel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.settingPanel input[type="number"] {
+    background-color: #0000;
+    border: 0;
+    font-size: 2.5em;
+    width: 50px;
+}
+
+

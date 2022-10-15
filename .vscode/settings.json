@@ -18,5 +18,11 @@
     },
   "background.customImages": [
         "C:/k.png",
+    ],
+    "favorites.resources": [
+      {
+        "filePath": "src\\prototype\\randomNumber\\main.js",
+        "group": "Default"
+      }
     ]
 }

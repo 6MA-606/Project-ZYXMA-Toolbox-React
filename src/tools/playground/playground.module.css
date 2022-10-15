@@ -4,6 +4,10 @@
     flex-wrap: wrap;
 }
 
+.container > * {
+    margin: 2vw;
+}
+
 /* @media (max-width: 800px) {
     .container {
         justify-content: center;

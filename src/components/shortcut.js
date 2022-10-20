@@ -40,7 +40,7 @@ class Shortcut extends React.Component {
         }
 
         const content = (
-            <div style={{ color: this.state.color, display: 'flex', justifyContent: this.state.align }}>
+            <div style={{ color: this.state.color, display: 'flex', flex: '230px', justifyContent: this.state.align }}>
                 { this.props.children }
             </div>
         );
@@ -54,7 +54,7 @@ class Shortcut extends React.Component {
         }
 
         return (
-            <div className={ shortcut.box } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className={ shortcut.item }>
                 { tooltip(this.state.tooltip) }
                 <div className={ shortcut.container } onClick={ this.onClick } style={ styles }>
                     <img src={ this.state.thumbnail } height="70px" weight="auto" alt="thumbnail missing" style={{ flex: '70px', filter: 'invert(' + invert + ')' }}/>

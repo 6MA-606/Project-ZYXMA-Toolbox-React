@@ -23,6 +23,10 @@
       {
         "filePath": "src\\prototype\\randomNumber\\main.js",
         "group": "Default"
+      },
+      {
+        "filePath": "src\\toolbox.js",
+        "group": "Default"
       }
     ]
 }

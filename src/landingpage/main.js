@@ -1,47 +1,48 @@
 import Shortcut from "../components/shortcut";
 import styles from "./landingpage.module.css";
-import $ from "jquery";
-import { useState } from "react";
+// import $ from "jquery";
+// import { useState } from "react";
+import Portal from "../components/widget/portal/main";
 
 function LandingPage() {
 
-    const [style, setStyle] = useState({});
-    const [content, setContent] = useState('');
+    // const [style, setStyle] = useState({});
+    // const [content, setContent] = useState('');
 
-    const delay = ms => new Promise(
-        resolve => setTimeout(resolve, ms)
-    );
+    // const delay = ms => new Promise(
+    //     resolve => setTimeout(resolve, ms)
+    // );
 
-    $(function () {
+    // $(function () {
 
-        let warp = $("#warp");
+    //     let warp = $("#warp");
 
-        warp.on('click', async() => {
-            setStyle({
-                width: "100vw",
-                height: "100vh",
-                borderRadius: "0px",
-                backgroundColor: "#f8f8ff",
-                cursor: 'unset'
-            });
+    //     warp.on('click', async() => {
+    //         setStyle({
+    //             width: "100vw",
+    //             height: "100vh",
+    //             borderRadius: "0px",
+    //             backgroundColor: "#f8f8ff",
+    //             cursor: 'unset'
+    //         });
             
-            $('body').css('overflow', 'hidden');
+    //         $('body').css('overflow', 'hidden');
 
-            await delay( 1000 );
+    //         await delay( 1000 );
 
-            window.location = '/zyxma-toolbox';
-        });
+    //         window.location = '/zyxma-toolbox';
+    //     });
 
-        warp.on('mouseover', async() => {
-            setStyle({
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-            });
-            setContent('');
-        });
-    });
+    //     warp.on('mouseover', async() => {
+    //         setStyle({
+    //             display: 'flex',
+    //             flexDirection: 'column',
+    //             justifyContent: 'center',
+    //             alignItems: 'center'
+    //         });
+    //         setContent('');
+    //     });
+    // });
 
     return (
         <div className={ styles.page }>
@@ -61,9 +62,14 @@ function LandingPage() {
                 </div>
             </div>
             <div className={ styles.section_2 }>
-                <div id="warp" style={ style }>{ content }
+                {/* <div id="warp" style={ style }>{ content }
                     <div></div>
-                </div>
+                </div> */}
+                <Portal tooltip="ZYXMA-Toolbox" bg="linear-gradient(to bottom, #f8f8ff, #8800ff)" bgHover="url('./img/portal/bgHover/zyxma-toolbox.png') #f8f8ff" goto="zyxma-toolbox">
+                    <div style={{ color: "#fff", borderBottom: "2px solid #fff" }}>ZYXMA-Toolbox</div>
+                    
+                    <p>Laborum incididunt cillum aute consequat.Laborum incididunt cillum aute consequat.Laborum incididunt cillum aute consequat.</p>
+                </Portal>
             </div>
         </div>
     );

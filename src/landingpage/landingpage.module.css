@@ -104,7 +104,7 @@
     z-index: 2;
 }
 
-.section_2 div {
+/* .section_2 div {
     width: 50px;
     height: 50px;
     background-color: var(--color3);
@@ -113,14 +113,14 @@
     transition: .5s;
 }
 
-.section_2 div/*:hover*/ {
+.section_2 div:hover {
     width: 200px;
     height: 300px;
     background-color: var(--color3);
     box-shadow: 3px 3px 15px 5px #2020207f;
     border-radius: 20px;
     cursor: pointer;
-}
+} */
 
 @keyframes fadeInBottom {
     from {

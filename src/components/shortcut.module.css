@@ -1,3 +1,9 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .container {
     /* height: 70px; */
     /* margin: 2vw; */
@@ -6,10 +12,7 @@
     display: flex;
     transition: .25s;
     box-shadow: #00000044 6px 6px 10px 1px;
-}
-
-.container div {
-    flex: 230px;
+    /* z-index: 2; */
 }
 
 .container:hover {
@@ -34,8 +37,8 @@
     transform: scale(0.8);
 }
 
-.tooltiptext,.box:hover .tooltiptext:hover {
-    visibility: hidden;
+.tooltiptext, .item:hover .tooltiptext:hover {
+    visibility: shhideow;
     opacity: 0%;
     font-size: 0.75em;
     position: absolute;
@@ -45,10 +48,10 @@
     border-radius: 5px;
     transform: translateY(-40px);
     transition: 0.25s;
-    z-index: 2;
+    z-index: 3;
 }
 
-.box:hover .tooltiptext {
+.item:hover .tooltiptext {
     visibility: visible;
     transform: translateY(-48px);
     opacity: 100%;

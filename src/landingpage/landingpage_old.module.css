@@ -1,37 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
 
 :root {
     --font: 'Varela Round', sans-serif;
-    --color1: #242131;
-    --color2: #3b3452;
+    --color1: #b1ffe2;
+    --color2: #f8f8ff;
     --color3: #202020;
 }
 
-body {
-    overflow: overlay;
-}
-
 ::-webkit-scrollbar {
-    width: 10px;
-    /* display: none; */
-    background: transparent;
+    width: 0px;
 }
 
-
+/* 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #f1f1f1;
 }
-
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background-color: rgba(0,0,0,0.2);
+    background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0,0,0,0.4);
-}
+    background: #555;
+} */
 
 .page {
     background-color: var(--color1);
@@ -47,78 +38,59 @@ body {
     animation-name: section_1BG;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    /* background-attachment: fixed; */
     overflow: hidden;
-
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.section_1 > .navbar {
+.section_1 > .inner {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-
-    width: 100%;
-    top: 17px;
-    position: fixed;
-    
-    z-index: 5;
-}
-
-.section_1 > .content {
     width: inherit;
     height: inherit;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    z-index: 2;
 }
 
-.section_1 .content > .bgText {
-    font-family: 'Ubuntu Mono', monospace;
-    font-size: 16rem;
-    background: linear-gradient(to right, #d0d2e4 0%, #a487e9 100%);
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-    user-select: none;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0%;
-    letter-spacing: 0;
-    animation: zyxma-text 3s forwards;
-}
-
-.section_1 .content > .myPic {
-    width: 400px;
-    height: 400px;
-    background-image: linear-gradient(135deg, #7a66a5, #4c3e6b);
-    border-radius: 200px;
+.section_1 > .inner > * {
+    flex: 50%;
     overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.section_1 .content > .myPic > img {
-    height: inherit;
+.section_1 > .inner > .left > img {
+    opacity: 0%;
+    animation-name: fadeInBottom;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
 
-.section_1 .content > .mySocial {
+.section_1 > .logoText {
+    text-shadow: #14b393bf 0px 0px 15px;
+    color: var(--color2);
+    font-size: 18vw;
+    font-family: var(--font);
+    letter-spacing: 0.25em;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation-name: zyxma-text;
+    animation-duration: 2s;
+    position: fixed;
+    z-index: 1;
 }
 
-.section_1 > .navbar > div {
-    color: ghostwhite;
-    /* width: 60px;
-    height: 30px;
-    background-color: #202020; */
+.section_1 > .inner > .right > div {
+    opacity: 0%;
+    animation-name: fadeInRight;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
 
 .section_2 {
@@ -131,6 +103,24 @@ body {
     align-items: center;
     z-index: 2;
 }
+
+/* .section_2 div {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color3);
+    box-shadow: 3px 3px 15px 5px #2020207f;
+    border-radius: 25px;
+    transition: .5s;
+}
+
+.section_2 div:hover {
+    width: 200px;
+    height: 300px;
+    background-color: var(--color3);
+    box-shadow: 3px 3px 15px 5px #2020207f;
+    border-radius: 20px;
+    cursor: pointer;
+} */
 
 @keyframes fadeInBottom {
     from {
@@ -159,12 +149,12 @@ body {
 @keyframes zyxma-text {
     from {
         opacity: 0%;
-        letter-spacing: 0;
+        letter-spacing: 0em;
     }
 
     to {
         opacity: 100%;
-        letter-spacing: 1rem;
+        letter-spacing: 0.25em;
     }
 }
 

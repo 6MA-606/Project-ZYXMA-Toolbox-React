@@ -1,0 +1,23 @@
+.container {
+    height: 30px;
+    color: ghostwhite;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container:hover {
+    cursor: pointer;
+}
+
+.container:hover div {
+    animation: hoverAnimate .3s forwards;
+}
+
+@keyframes hoverAnimate {
+    0% { transform: translateY(0px); }
+    50% { color: #b8a6f3; transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}

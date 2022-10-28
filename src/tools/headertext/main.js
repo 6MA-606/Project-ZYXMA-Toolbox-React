@@ -106,6 +106,20 @@ function HeaderText() {
         }
         letSpaceInput.on('input', letterSpaceUpdate );
         letSpaceTyping.on('change', letterSpaceUpdate );
+        
+        let wordSpaceInput = $('#word-space-input');
+        let wordSpaceTyping = $('#word-space-inputTyping');
+        let wordSpaceValue;
+        
+        function wordSpaceUpdate() {
+            wordSpaceValue = wordSpaceTyping.val() > 10 ? wordSpaceTyping.val() > 25 ? 25 : wordSpaceTyping.val() : wordSpaceInput.val();
+            wordSpaceTyping.val(wordSpaceValue);
+            $('#css-wordSpace-section').css('display', wordSpaceInput.val() < 1 ? 'none' : 'block');
+            $('#css-wordSpace').text(wordSpaceValue);
+            preview_text.css('word-spacing', wordSpaceValue + 'px');
+        }
+        wordSpaceInput.on('input', wordSpaceUpdate );
+        wordSpaceTyping.on('change', wordSpaceUpdate );
 
         let textShadowCheckbox = $('#text-shadow-checkbox');
         let shadowColorPicker = $('#shadowColorPicker');
@@ -215,8 +229,8 @@ function HeaderText() {
                 dec_style += overline.prop('checked') || underline.prop('checked') ? ' line-through' : 'line-through';
             }
             if (dec_style === '') {
-                  dec_style = 'none';
-             }
+                dec_style = 'none';
+            }
             $('#css-text-decoration').text(dec_style);
             preview_text.css('text-decoration', dec_style);
         }
@@ -251,6 +265,7 @@ function HeaderText() {
                         </MenuInput>
                         <ColorInput label="Color: " id="color" className="color" base="#000000" />
                         <RangeInput label="Letter-spacing: " id="letter-space-input" min="0" max="10" value="0" visibleValue="px" canType />
+                        <RangeInput label="Word-spacing: " id="word-space-input" min="0" max="10" value="0" visibleValue="px" canType />
                         <CheckboxInput label="Shadow: " labelDisplay="front" id="text-shadow-checkbox" />
                         <div className={ headertext.textShadowUi } id="text-shadow-ui" style={{ display: 'none' }}>
                             <RangeInput label="x distance: " id="hs-input" min="-50" max="50" value="0" visibleValue="px" />
@@ -275,6 +290,7 @@ function HeaderText() {
                         <CSSproperty id="css-fontFam" name="font-family" defaultValue={{value: ["Arial, Helvetica, sans-serif"], id: ["css-fontFamVal"]}} />
                         <CSSproperty name="color" defaultValue={{value: ["#000000"], id: ["css-color"], type: ["color"]}} />
                         <CSSproperty id="css-letSpace-section" name="letter-spacing" defaultValue={{value: ["0"], unit: ["px"], id: ["css-letSpace"]}} hide />
+                        <CSSproperty id="css-wordSpace-section" name="word-spacing" defaultValue={{value: ["0"], unit: ["px"], id: ["css-wordSpace"]}} hide />
                         <CSSproperty id="css-text-shadow" name="text-shadow" defaultValue={{value: ["#000000", 0, 0, 0], unit: ['', 'px', 'px', 'px'], id: ["css-text-shadow-color", "css-text-shadow-hs", "css-text-shadow-vs", "css-text-shadow-blur"], type: ["color"]}} hide />
                         <CSSproperty id="css-decoration-section" name="text-decoration" defaultValue={{value: ["none"], id: ["css-text-decoration"]}} hide />
                     </CSSrule>

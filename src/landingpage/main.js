@@ -35,9 +35,9 @@ function LandingPage() {
                 </div>
             </div>
             <div className={ styles.section_2 } id="project">
-                <Portal tooltip="ZYXMA-Toolbox" bg="linear-gradient(to bottom, #f8f8ff, #8800ff)" bgHover="url('./img/portal/bgHover/zyxma-toolbox.png') #f8f8ff" goto="zyxma-toolbox">
+                <Portal tooltip="ZYXMA-Toolbox" bg="linear-gradient(135deg, #3b3b3b, #2d2d2d)" bgHover="url('./img/portal/bgHover/zyxma-toolbox.png') #f8f8ff" goto="zyxma-toolbox">
                     <div style={{ color: "#fff", borderBottom: "2px solid #fff" }}>ZYXMA-Toolbox</div>
-                    <p>Laborum incididunt cillum aute consequat.Laborum incididunt cillum aute consequat.Laborum incididunt cillum aute consequat.</p>
+                    <img src="./img/icon/zyxma-toolbox-mini.png" alt="zyxma-toolbox-mini" width="150px"/>
                 </Portal>
             </div>
         </div>

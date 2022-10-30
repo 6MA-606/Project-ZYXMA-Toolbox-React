@@ -8,11 +8,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 
 .container:hover {
     filter: saturate(1.2);
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.container:active {
+    transform: scale(0.8);
 }

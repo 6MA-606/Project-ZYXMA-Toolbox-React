@@ -60,8 +60,10 @@ body {
     align-items: center;
 
     width: 100%;
-    top: 17px;
+    top: 0px;
+    padding: 20px 0;
     position: fixed;
+    background-image: linear-gradient(to bottom, var(--color1), #0000);
     
     z-index: 5;
 }
@@ -175,5 +177,27 @@ body {
 
     to {
         background-position-y: 0vh;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .section_1 > .content {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .section_1 .content > .myPic {
+        display: none;
+    }
+
+    .section_1 .content > .mySocial {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 800px) {
+    .section_1 .content > .bgText {
+        font-size: 32vw;
     }
 }

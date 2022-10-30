@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* overflow: hidden; */
+    transition: 0.25s;
+}
+
+.box:active {
+    transform: scale(0.8);
 }
 
 .container {
@@ -27,14 +33,15 @@
 }
 
 .tooltiptext/*,.box:hover .tooltiptext:hover*/ {
+    box-sizing: border-box;
     visibility: hidden;
     opacity: 0%;
     font-size: 1.25em;
     position: absolute;
     color: white;
     background-color: #0007;
-    padding: 1px 3px;
-    border-radius: 5px;
+    padding: 1px 10px;
+    border-radius: 20px;
     transform: translateY(0px);
     transition: 0.25s;
     z-index: 2;

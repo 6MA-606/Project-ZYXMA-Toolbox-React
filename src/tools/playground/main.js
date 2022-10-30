@@ -1,4 +1,5 @@
 import Shortcut from '../../components/shortcut';
+import { DarkModeSwitch } from '../../components/widget/darkModeSwitch/main';
 import MoonToday from '../../components/widget/moonToday/main';
 import ShortcutGroup from '../../components/widget/shortcutGroup.js/main';
 // import AudioPlayer from '../../prototype/audioPlayer/main';
@@ -28,6 +29,7 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/facebook.png' bgcolor="#05a" href="https://www.facebook.com" icon />
                 <Shortcut thumbnail='./img/icon/youtube.png' bgcolor="#222" href="https://www.youtube.com" icon />
                 <Shortcut thumbnail='./img/icon/laibaht-ico.png' bgcolor="#336" href="./lazyFeature/laibaht/index.html" icon tooltip="Laibaht Link Converter" />
+                <Shortcut thumbnail='./img/icon/helloworld-ico.png' bgimage="linear-gradient(to right bottom, #f7c777, #e59744)" href="https://helloworld-fennec-2022.gitbook.io/helloworldfennec2022/" icon tooltip="SIT Helloworld 2022" />
             </ShortcutGroup>
 
             <ShortcutGroup type="icon">
@@ -41,6 +43,8 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/flexboxfroggy.png' bgcolor="#43a047" href="https://flexboxfroggy.com" icon tooltip="Flexbox Froggy"/>
                 <Shortcut thumbnail='./img/icon/bootstrap5_icon.png' bgimage="url('./img/icon/bg/bootstrap5_icon_bg.jpg')" href="https://icons.getbootstrap.com" icon tooltip="Bootstrap5 Icon"/>
             </ShortcutGroup>
+
+            <DarkModeSwitch checked="false" />
 
             {/* <AudioPlayer /> */}
             {/* <RandomNumber /> */}

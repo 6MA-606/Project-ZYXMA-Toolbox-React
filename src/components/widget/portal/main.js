@@ -20,7 +20,6 @@ class Portal extends React.Component {
         this.hover = this.mouseOver.bind(this);
         this.leave = this.mouseLeave.bind(this);
         this.click = this.click.bind(this);
-
     }
 
     mouseOver() {
@@ -42,8 +41,12 @@ class Portal extends React.Component {
             content: this.props.children
         });
     }
-
+    
     click() {
+        // setTimeout(() => {
+        //     window.location = this.state.destination;
+        // }, 5000)
+
         window.location = this.state.destination;
     }
 

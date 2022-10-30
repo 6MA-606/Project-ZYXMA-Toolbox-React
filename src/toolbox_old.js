@@ -1,4 +1,4 @@
-import './toolbox.css';
+// import './toolbox.css';
 import $ from 'jquery';
 import { useState } from 'react';
 import HeaderText from './tools/headertext/main';
@@ -79,18 +79,18 @@ function Toolbox() {
         
     });
 
-    function toggleNav() {
-        let slidenav = $('#slidenav');
-        let slidenavBtn = $('#slidenavBtn');
+    // function toggleNav() {
+    //     let slidenav = $('#slidenav');
+    //     let slidenavBtn = $('#slidenavBtn');
         
-        if (slidenav.css('width') !== '250px') {
-            slidenav.css('width', '250px')
-            slidenavBtn.css('margin-left', '250px');
-        } else {
-            slidenav.css('width', '0px')
-            slidenavBtn.css('margin-left', '0px');
-        }
-    }
+    //     if (slidenav.css('width') !== '250px') {
+    //         slidenav.css('width', '250px')
+    //         slidenavBtn.css('margin-left', '250px');
+    //     } else {
+    //         slidenav.css('width', '0px')
+    //         slidenavBtn.css('margin-left', '0px');
+    //     }
+    // }
 
     return (
         <div>
@@ -123,26 +123,6 @@ function Toolbox() {
                     </svg>
                 </SideNavBth>
             </SideNav>
-            <button id='slidenavBtn' onClick={ toggleNav }></button>
-            <div id="slidenav">
-                <span className="slidenav-header">
-                    <div>ZYXMA-Toolbox</div>
-                </span>
-                <div className="slidenav-list">
-                    <div className="slidenav-button">
-                        <span className="list_1">Header Text</span>
-                    </div>
-                    <div className="slidenav-button">
-                        <span className="list_2">QRcode Generator</span>
-                    </div>
-                    <div className="slidenav-button">
-                        <span className="list_3">Element Box</span>
-                    </div>
-                    <div className="slidenav-button">
-                        <span className="list_4">Playground</span>
-                    </div>
-                </div>
-            </div>
             <div className="flex-container">
                 <div className="content">
                     <span id="header" style={{ flex: '8vh' }}>
@@ -157,4 +137,4 @@ function Toolbox() {
     );
 }
 
-export default Toolbox;
+// export default Toolbox;

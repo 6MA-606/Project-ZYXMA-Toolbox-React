@@ -9,23 +9,41 @@ import Playground from '../../tools/playground/main';
 import ElementBox from '../../tools/box/main';
 import { SideNav, SideNavBth } from '../../components/sidenav/main';
 import { Icon } from '../../components/icon/main';
+import { DarkModeSwitch } from '../../components/widget/darkModeSwitch/main';
 
 
 class Toolbox extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        const { lightModeBG, darkModeBG, lightText, darkText} = props;
+
         this.state = {
             header: '',
             content: '',
-            page: localStorage.getItem('page')
+            page: localStorage.getItem('page'),
+            lightModeBG: !(lightModeBG === '' || lightModeBG === undefined) ? lightModeBG : "linear-gradient(135deg, #fefefe, #fff)",
+            darkModeBG: !(darkModeBG === '' || darkModeBG === undefined) ? darkModeBG : "linear-gradient(135deg, #202020, #353535)",
+            // bg: '',
+            lightText: !(lightText === '' || lightText === undefined) ? lightText : "#252525",
+            darkText: !(darkText === '' || darkText === undefined) ? darkText : "#f8f8ff",
+            textColor: ''
         }
 
-        this.sideNavClick = this.sideNavClick.bind(this);
+        this.darkModeUpdate = this.darkModeUpdate.bind(this);
     }
 
-    sideNavClick() {
-        
+    darkModeUpdate() {
+        if ($('#darkMode').prop('checked') || localStorage.getItem('darkMode') === '1') {
+            // this.setState({ bg: this.state.darkModeBG })
+            $('body').css('background', this.state.darkModeBG);
+            this.setState({ textColor: this.state.darkText })
+        } else {
+            // this.setState({ bg: this.state.lightModeBG })
+            $('body').css('background', this.state.lightModeBG);
+            this.setState({ textColor: this.state.lightText })
+        }
     }
 
     componentDidMount() {
@@ -50,6 +68,8 @@ class Toolbox extends React.Component {
                 this.setState({ header: <span>Header Text Generator</span> });
                 this.setState({ content: <HeaderText /> });
         }
+
+        this.darkModeUpdate();
     }
     
 
@@ -90,30 +110,35 @@ class Toolbox extends React.Component {
                 this.setState({ content: <AboutMe /> });
                 localStorage.setItem('page', '600');
             });
+
+            $('#darkMode').on('change', () => {
+                this.darkModeUpdate();
+            });
         });
         
 
         return (
             <div>
-                <div className={ styles.gridContainer }>
+                <div className={ styles.gridContainer } id="toolbox">
                     <div className={ styles.gridItem_1 }>
-                        <SideNav>
+                        <SideNav lightModeBG="#fefefe" darkModeBG="#43446a">
                             <SideNavBth main className="home_btn">
-                                <Icon variant="house" color="#8000ff" />
+                                <Icon variant="house" lightModeColor="#8000ff" darkModeColor="#00efaa"/>
                             </SideNavBth>
                             <SideNavBth className="list_1">
-                                <Icon variant="textarea" color="#303030" />
+                                <Icon variant="textarea" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
                             </SideNavBth>
                             <SideNavBth className="list_2">
-                                <Icon variant="qr-code" color="#303030" />
+                                <Icon variant="qr-code" lightModeColor="#303030" darkModeColor="#f8f8ff" />
                             </SideNavBth>
                             <SideNavBth className="list_4">
-                                <Icon variant="joystick" color="#303030" />
+                                <Icon variant="joystick" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
                             </SideNavBth>
                         </SideNav>
                     </div>
-                    <div className={ styles.gridItem_2 }>
-                        { this.state.header } 
+                    <div className={ styles.gridItem_2 } style={{ color: this.state.textColor }}>
+                        { this.state.header }
+                        <DarkModeSwitch />
                     </div>
                     <div className={ styles.gridItem_3 }>
                         { this.state.content }

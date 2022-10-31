@@ -1,19 +1,48 @@
 import React from "react";
+import $ from 'jquery';
 
 export class Icon extends React.Component {
     constructor(props) {
         super(props);
 
-        const { variant, size, color } = props;
+        const { variant, size, lightModeColor, darkModeColor } = props;
 
         this.state = {
             variant: !(variant === '' || variant === undefined) ? variant : "",
             size: !(size === '' || size === undefined) ? size : "25",
-            color: !(color === '' || color === undefined) ? color : "currentColor"
+            lightModeColor: !(lightModeColor === '' || lightModeColor === undefined) ? lightModeColor : "#000",
+            darkModeColor: !(darkModeColor === '' || darkModeColor === undefined) ? darkModeColor : "#fff",
+            color: ''
+        }
+
+        this.darkModeUpdate = this.darkModeUpdate.bind(this);
+    }
+
+    darkModeUpdate() {
+        if ($('#darkMode').prop('checked')) {
+            this.setState({ color: this.state.darkModeColor })
+        } else {
+            this.setState({ color: this.state.lightModeColor })
+        }
+    }
+
+    componentDidMount() {
+        console.log(localStorage.getItem('darkMode'));
+        if (localStorage.getItem('darkMode') === '1') {
+            this.setState({ color: this.state.darkModeColor })
+        } else {
+            this.setState({ color: this.state.lightModeColor })
         }
     }
 
     render() {
+
+        $(() => {
+            $('#darkMode').on('change', () => {
+                this.darkModeUpdate();
+            });
+        });
+
         switch (this.state.variant) {
             case "house":
                 return (

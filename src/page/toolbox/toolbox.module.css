@@ -6,7 +6,8 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
-    background-color: ghostwhite;
+    /* background-color: ghostwhite; */
+    transition: background 0.5s;
 }
     
 .gridItem_1 {
@@ -20,11 +21,16 @@
     grid-area: 1 / 2 / 2 / 3;
     /* background-color: green; */
     border-bottom: 1px solid grey;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .gridItem_2 > span {
     font-size: 3em;
     text-indent: 1em;
+
 }
 
 .gridItem_3 {

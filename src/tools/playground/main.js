@@ -2,6 +2,7 @@ import Shortcut from '../../components/shortcut';
 import { DarkModeSwitch } from '../../components/widget/darkModeSwitch/main';
 import MoonToday from '../../components/widget/moonToday/main';
 import ShortcutGroup from '../../components/widget/shortcutGroup.js/main';
+import { Icon } from '../../components/icon/main';
 // import AudioPlayer from '../../prototype/audioPlayer/main';
 import playground from './playground.module.css';
 
@@ -30,6 +31,16 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/youtube.png' bgcolor="#222" href="https://www.youtube.com" icon />
                 <Shortcut thumbnail='./img/icon/laibaht-ico.png' bgcolor="#336" href="./lazyFeature/laibaht/index.html" icon tooltip="Laibaht Link Converter" />
                 <Shortcut thumbnail='./img/icon/helloworld-ico.png' bgimage="linear-gradient(to right bottom, #f7c777, #e59744)" href="https://helloworld-fennec-2022.gitbook.io/helloworldfennec2022/" icon tooltip="SIT Helloworld 2022" />
+                <Shortcut internalThumbnail bgcolor="#1e2432" href="https://cssgrid-generator.netlify.app" icon tooltip="CSS Grid Generator">
+                    <svg data-v-1d215c44="" xmlns="http://www.w3.org/2000/svg" fill="#08ffbd" viewBox="0 0 100 100" width="50" height="50">
+                        <g data-v-1d215c44="" fillRule="nonzero" className="logo">
+                            <path data-v-1d215c44="" d="M23 23v65h65V23H23zm-1-1h67v67H22V22zM10 10v8h8v-8h-8zM9 9h10v10H9V9z"></path>
+                            <path data-v-1d215c44="" d="M9.146 9.854a.5.5 0 1 1 .708-.708l9 9a.5.5 0 0 1-.708.708l-9-9zM33 22h1v66.168h-1zM66 22h1v66.168h-1zM44 22h1v66.168h-1zM77 22h1v66.168h-1zM55 22h1v66.168h-1z"></path>
+                            <path data-v-1d215c44="" d="M88.584 34.084v-1H22.416v1zM88.584 78.084v-1H22.416v1zM88.584 56.084v-1H22.416v1zM88.584 45.084v-1H22.416v1zM89.084 67.084v-1H22.916v1zM13 18.5h1V89h-1zM18 14v-1h71v1z"></path>
+                            <path data-v-1d215c44="" d="M88 9h1v9h-1zM9 89v-1h9v1z"></path>
+                        </g>
+                    </svg>
+                </Shortcut>
             </ShortcutGroup>
 
             <ShortcutGroup type="icon">
@@ -43,8 +54,6 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/flexboxfroggy.png' bgcolor="#43a047" href="https://flexboxfroggy.com" icon tooltip="Flexbox Froggy"/>
                 <Shortcut thumbnail='./img/icon/bootstrap5_icon.png' bgimage="url('./img/icon/bg/bootstrap5_icon_bg.jpg')" href="https://icons.getbootstrap.com" icon tooltip="Bootstrap5 Icon"/>
             </ShortcutGroup>
-
-            <DarkModeSwitch checked="false" />
 
             {/* <AudioPlayer /> */}
             {/* <RandomNumber /> */}

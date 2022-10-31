@@ -12,7 +12,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/zyxma-toolbox" element={<Toolbox />} />
+      <Route path="/zyxma-toolbox" element={<Toolbox lightModeBG="#fefefe" darkModeBG="#27273a"/>} />
     </Routes>
   </BrowserRouter>
 );

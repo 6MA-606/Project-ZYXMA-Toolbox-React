@@ -4,7 +4,7 @@ import shortcut from './shortcut.module.css';
 class Shortcut extends React.Component {
     constructor(props) {
         super(props);
-        const { thumbnail, bgcolor, color, labelAlign, href, thumbnailInvert, icon, bgimage, tooltip } = props;
+        const { thumbnail, bgcolor, color, labelAlign, href, thumbnailInvert, icon, bgimage, tooltip, internalThumbnail } = props;
 
         this.state = {
             thumbnail: thumbnail,
@@ -15,6 +15,7 @@ class Shortcut extends React.Component {
             href: href,
             thumbnailInvert: thumbnailInvert,
             icon: icon,
+            internalThumbnail: internalThumbnail,
             tooltip: tooltip
         }
 
@@ -36,7 +37,8 @@ class Shortcut extends React.Component {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: this.state.icon ? '70px' : '300px'
+            width: this.state.icon ? '70px' : '300px',
+            height: '70px'
         }
 
         const content = (
@@ -53,11 +55,25 @@ class Shortcut extends React.Component {
             return '';
         }
 
+        const thumbnail = (internalThumbnail) => {
+
+            if (internalThumbnail) return this.props.children;
+
+            return (
+                <img
+                    src={ this.state.thumbnail }
+                    height="70px"
+                    weight="auto"
+                    alt="thumbnail missing"
+                    style={{ flex: '70px', filter: 'invert(' + invert + ')' }}/>
+                );
+        };
+
         return (
             <div className={ shortcut.item }>
                 { tooltip(this.state.tooltip) }
                 <div className={ shortcut.container } onClick={ this.onClick } style={ styles }>
-                    <img src={ this.state.thumbnail } height="70px" weight="auto" alt="thumbnail missing" style={{ flex: '70px', filter: 'invert(' + invert + ')' }}/>
+                    { thumbnail(this.state.internalThumbnail) }
                     { this.state.icon ? '' : content }
                 </div>
             </div>

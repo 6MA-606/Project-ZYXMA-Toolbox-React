@@ -25,15 +25,15 @@
     transform: scale(0.95);
 }
 
-.container img {
+.container img, .container svg {
     transition: .25s;
 }
 
-.container:hover img {
+.container:hover img, .container:hover svg {
     transform: scale(1.2);
 }
 
-.container:active img {
+.container:active img, .container:active svg {
     transform: scale(0.8);
 }
 

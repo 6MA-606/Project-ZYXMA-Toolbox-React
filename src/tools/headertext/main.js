@@ -252,7 +252,7 @@ function HeaderText() {
             <div style={{ flex: '40%' }}>
                 <div className={ tools.toolbox }>
                     <div className={ tools.toping }>
-                        <TextInput id="text-input" placeholder="Your text here" value="Your text here" />
+                        <TextInput id="text-input" placeholder="Your text here" value="Your text here" darkStyle={["#f8f8ff", "#252525", "#303030"]}/>
                         <RangeInput label="Font-size: " id="font-size-input" min="0" max="125" value="50" visibleValue="px" canType />
                         <MenuInput label="Font Family: " id="font-families" toggleButton>
                             <MenuList label="Arial" value="Arial, Helvetica, sans-serif" />

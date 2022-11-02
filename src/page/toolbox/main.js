@@ -114,13 +114,28 @@ class Toolbox extends React.Component {
             $('#darkMode').on('change', () => {
                 this.darkModeUpdate();
             });
+
+            $('#listBtn').on('click', () => {
+                $('#sideNav').css('display', 'block');
+            });
+
+            $('#closeBtn').on('click', () => {
+                $('#sideNav').css('display', 'none');
+            });
+
         });
         
 
         return (
             <div>
+                <div className={ styles.listBtn } id='listBtn'>
+                    <Icon variant="list" lightModeColor="#8000ff" darkModeColor="#00efaa" size="50"/>
+                </div>
                 <div className={ styles.gridContainer } id="toolbox">
-                    <div className={ styles.gridItem_1 }>
+                    <div className={ styles.gridItem_1 } id="sideNav">
+                        <div className={ styles.closeBtn } id='closeBtn'>
+                            <Icon variant="x" lightModeColor="#8000ff" darkModeColor="#00efaa" size="50"/>
+                        </div>
                         <SideNav lightModeBG="#fefefe" darkModeBG="#43446a">
                             <SideNavBth main className="home_btn">
                                 <Icon variant="house" lightModeColor="#8000ff" darkModeColor="#00efaa"/>

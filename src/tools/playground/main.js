@@ -1,8 +1,8 @@
 import Shortcut from '../../components/shortcut';
-import { DarkModeSwitch } from '../../components/widget/darkModeSwitch/main';
+// import { DarkModeSwitch } from '../../components/widget/darkModeSwitch/main';
 import MoonToday from '../../components/widget/moonToday/main';
 import ShortcutGroup from '../../components/widget/shortcutGroup.js/main';
-import { Icon } from '../../components/icon/main';
+// import { Icon } from '../../components/icon/main';
 // import AudioPlayer from '../../prototype/audioPlayer/main';
 import playground from './playground.module.css';
 
@@ -41,8 +41,9 @@ function Playground() {
                         </g>
                     </svg>
                 </Shortcut>
+                <Shortcut thumbnail='./img/icon/google/doc.png' bgcolor="#f8f8ff" href="https://docs.google.com" icon />
+                <Shortcut thumbnail='./img/icon/google/drive.png' bgcolor="#f8f8ff" href="https://drive.google.com" icon />
             </ShortcutGroup>
-
             <ShortcutGroup type="icon">
                 <Shortcut thumbnail='./img/icon/ilovepdf.png' bgcolor="#f8f8ff" href="https://www.ilovepdf.com" icon />
                 <Shortcut thumbnail='./img/icon/htmlcolorcode.png' bgcolor="#f8f8ff" href="https://htmlcolorcodes.com" icon tooltip="HTML Color Codes" />

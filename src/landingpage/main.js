@@ -11,14 +11,14 @@ function LandingPage() {
     return (
         <div className={ styles.page } id="top">
             <div className={ styles.section_1 }>
-                <div className={ styles.navbar}>
-                    <div className={ styles.left}>
+                <div className={ styles.navbar }>
+                    <div className={ styles.left }>
                         <NavButton href="#top">ZYXMA</NavButton>
                     </div>
-                    <div className={ styles.center}>
+                    <div className={ styles.center }>
                         <NavButton href="#project">Project</NavButton>
                     </div>
-                    <div className={ styles.right}>TEST</div>
+                    <div className={ styles.right }>TEST</div>
                 </div>
                 <div className={ styles.content }>
                     <div className={ styles.bgText }>

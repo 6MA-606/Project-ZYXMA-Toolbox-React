@@ -37,3 +37,41 @@
     grid-area: 2 / 2 / 3 / 3;
     /* background-color: blue; */
 }
+
+.listBtn {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    transition: .25s;
+}
+
+.closeBtn {
+    left: 50px;
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    transition: .25s;
+}
+
+.listBtn:hover, .closeBtn:hover {
+    transform: scale(1.1);
+}
+
+.listBtn:active, .closeBtn:active {
+    transform: scale(0.8);
+}
+
+@media (max-width: 550px) {
+    .gridContainer {
+        grid-template-columns: 1fr;
+    }
+    .gridItem_1 {
+        display: none;
+    }
+    .listBtn {
+        display: block;
+    }
+    .closeBtn {
+        display: block;
+    }
+}

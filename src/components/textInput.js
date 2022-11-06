@@ -6,7 +6,12 @@ class TextInput extends React.Component {
         super(props);
         const { label, id, placeholder, value } = props;
 
-        this.state = { label: label, id: id, placeholder: placeholder, value: value };
+        this.state = {
+            label: label,
+            id: id,
+            placeholder: placeholder,
+            value: value
+        };
         this.change = this.handleChange.bind(this);
     }
 
@@ -19,7 +24,7 @@ class TextInput extends React.Component {
         return (
             <div id={ this.state.id + 'Block'}>
                 <label htmlFor={ this.state.id }>{ this.state.label }</label>
-                <input id={ this.state.id } className={styles.input} type="text" placeholder={ this.state.placeholder } onChange={ this.change } value={ refValue(this.state.value) }/>
+                <input id={ this.state.id } className={ styles.input } type="text" placeholder={ this.state.placeholder } onChange={ this.change } value={ refValue(this.state.value) }/>
             </div>
         );
     }

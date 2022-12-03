@@ -73,6 +73,7 @@ function Playground() {
                         <path d="M 61.35 68.2 A 3.15 3.15 90 1 0 61.35 74.5 A 3.15 3.15 90 0 0 61.35 68.2 Z" stroke="#e95c60" fill="#e95c60"/>
                     </svg>
                 </Shortcut>
+                <Shortcut thumbnail='./img/icon/zerotier.png' bgcolor="#ffb354" href="https://my.zerotier.com" icon tooltip="Zero Tier"/>
             </ShortcutGroup>
 
             {/* <AudioPlayer /> */}

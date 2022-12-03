@@ -146,6 +146,9 @@ class Toolbox extends React.Component {
                             <SideNavBth className="list_2">
                                 <Icon variant="qr-code" lightModeColor="#303030" darkModeColor="#f8f8ff" />
                             </SideNavBth>
+                            <SideNavBth className="list_3">
+                                <Icon variant="box" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
+                            </SideNavBth>
                             <SideNavBth className="list_4">
                                 <Icon variant="joystick" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
                             </SideNavBth>

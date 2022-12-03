@@ -1,4 +1,4 @@
-import elementbox from './elementbox.module.css';
+import styles from './elementbox.module.css';
 // import tools from '../tools.module.css';
 import $ from 'jquery';
 
@@ -10,7 +10,7 @@ function ElementBox() {
     });
 
     return (
-        <div id="ElementBox" className={ elementbox.flexContainer }>
+        <div id="ElementBox" className={ styles.flexContainer }>
             
         </div>
     );

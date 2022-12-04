@@ -52,7 +52,6 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/canva.png' bgimage="linear-gradient(to right bottom, #01c2cc, #6722c7)" href="https://www.canva.com" icon />
                 <Shortcut thumbnail='./img/icon/audo.png' bgcolor="#222" href="https://audo.ai" icon tooltip="Audo"/>
                 <Shortcut thumbnail='./img/icon/colorsupply.png' bgcolor="#f8f8ff" href="https://colorsupplyyy.com/app" icon tooltip="Color Supply"/>
-                <Shortcut thumbnail='./img/icon/flexboxfroggy.png' bgcolor="#43a047" href="https://flexboxfroggy.com" icon tooltip="Flexbox Froggy"/>
                 <Shortcut thumbnail='./img/icon/bootstrap5_icon.png' bgimage="url('./img/icon/bg/bootstrap5_icon_bg.jpg')" href="https://icons.getbootstrap.com" icon tooltip="Bootstrap5 Icon"/>
             </ShortcutGroup>
             <ShortcutGroup type="icon">
@@ -75,6 +74,8 @@ function Playground() {
                 </Shortcut>
                 <Shortcut thumbnail='./img/icon/zerotier.png' bgcolor="#ffb354" href="https://my.zerotier.com" icon tooltip="Zero Tier"/>
                 <Shortcut thumbnail='./img/icon/netlify.png' bgcolor="#f8f8ff" href="https://app.netlify.com/" icon tooltip="Netlify"/>
+                <Shortcut thumbnail='./img/icon/flexboxfroggy.png' bgcolor="#43a047" href="https://flexboxfroggy.com" icon tooltip="Flexbox Froggy"/>
+                <Shortcut thumbnail='./img/icon/gridgarden.png' bgcolor="#836b32" href="https://cssgridgarden.com" icon tooltip="Grid Garden"/>
             </ShortcutGroup>
 
             {/* <AudioPlayer /> */}

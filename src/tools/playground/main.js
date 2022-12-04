@@ -74,6 +74,7 @@ function Playground() {
                     </svg>
                 </Shortcut>
                 <Shortcut thumbnail='./img/icon/zerotier.png' bgcolor="#ffb354" href="https://my.zerotier.com" icon tooltip="Zero Tier"/>
+                <Shortcut thumbnail='./img/icon/netlify.png' bgcolor="#f8f8ff" href="https://app.netlify.com/" icon tooltip="Netlify"/>
             </ShortcutGroup>
 
             {/* <AudioPlayer /> */}

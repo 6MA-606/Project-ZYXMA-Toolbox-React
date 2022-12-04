@@ -23,26 +23,49 @@
         // });
 
         function load() {
-            let input = document.getElementById('input');
+            let input = document.getElementById('inputLink');
             let array = [];
+            
+
+            const matchCheck = (url) => {
+                let regex_1 = new RegExp('\\b(&list)\\b');
+                let regex_2 = new RegExp('\\b(\\?list)\\b');
+                let regex_3 = new RegExp('\\b(watch)\\b');
+
+                let match_1 = url.match(regex_1) != null;
+                let match_2 = url.match(regex_2) != null;
+                let match_3 = url.match(regex_3) != null;
+
+                if (match_1 && match_3) {
+                    result = ((url.split('&list'))[0]).split('watch?v=');
+                } else if (match_2) {
+                    result = ((url.split('?list'))[0]).split('/');
+                } else if (match_3) {
+                    result = (url.split('watch?v='));
+                } else {
+                    return '';
+                }
+                return result[result.length - 1];
+            }
+
+
             input.addEventListener('input', () => {
-                array = (input.value).split((input.value).indexOf('=') < 0 ? '/' : '=');
-                document.getElementById("tail").innerText = array[array.length - 1];
+                document.getElementById("tail").innerText = matchCheck(input.value);    
             });
             
             let searchBox = document.getElementById('search-box');
             let searchBtn = document.getElementById('search-btn');
 
             function search() {
-                window.open("https://www.youtube.com/results?search_query=" + searchBox.value, "_blank")
+                window.open(`https://www.youtube.com/results?search_query=${searchBox.value}`, "_blank")
             }
 
             searchBtn.addEventListener('click', search);
 
-            document.querySelector('#copy').addEventListener('click', () => {
-                navigator.clipboard.writeText(document.querySelector('#copy').innerText)
+            document.querySelector('#copyLink').addEventListener('click', () => {
+                navigator.clipboard.writeText(document.querySelector('#copyLink').innerText)
                 .then(() => {
-                    alert("Copied~!");
+                    // alert("Copied~!");
                 })
                 .catch(() => {
                     
@@ -72,7 +95,7 @@
             margin-bottom: 20px;
         }
 
-        #input {
+        .input {
             font-family: 'Varela Round', sans-serif;
             color: #f1b900;
             border: 2px solid #f1b900;
@@ -83,11 +106,11 @@
             transition: 0.3s;
         }
 
-        #input:hover {
+        .input:hover {
             transform: scale(1.03);
         }
 
-        #input:active {
+        .input:active {
             transform: scale(0.97);
         }
 
@@ -186,18 +209,18 @@
                                             supported by Chrome, Edge, Opera and Firefox */
         }
 
-        #copy {
+        .copy {
             display: inline;
             padding: 4px 0;
             transition: 0.25s;
         }
 
-        #copy:hover {
+        .copy:hover {
             background-color: #fff5;
             cursor: pointer;
         }
 
-        #copy:active {
+        .copy:active {
             background-color: #f8d8707f;
             cursor: pointer;
         }
@@ -231,8 +254,12 @@
     </div>
     <br>
     <div class="container">
-        <input type="text" class="noselect" id="input" placeholder="Youtube Link Here">
-        <div class="output"><div class="label noselect">Bot-Command</div><div id="copy">/play music:https://play.laibaht.ovh/watch?v=<span id="tail"></span></div></div>
+        <input type="text" class="noselect input" id="inputLink" placeholder="Youtube Song/Video Here">
+        <div class="output"><div class="label noselect">Bot-Command</div><div id="copyLink" class="copy">/play music:https://play.laibaht.ovh/watch?v=<span id="tail"></span></div></div>
     </div>
+    <!-- <div class="container">
+        <input type="text" class="noselect input" id="input" placeholder="Youtube Playlist Here">
+        <div class="output"><div class="label noselect">Bot-Command</div><div id="copy" class="copy">/play music:https://play.laibaht.ovh/playlist?v=<span id="tail"></span></div></div>
+    </div> -->
 </body>
 </html>

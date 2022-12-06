@@ -4,7 +4,7 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter ,Routes , Route} from "react-router-dom";
-import LandingPage from './landingpage/main';
+// import LandingPage from './landingpage/main';
 import Toolbox from './page/toolbox/main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

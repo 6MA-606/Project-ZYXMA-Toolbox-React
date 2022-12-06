@@ -2,6 +2,12 @@
     --size: 230px;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .shortcutGrid {
     height: var(--size);
     display: grid;
@@ -18,4 +24,11 @@
 .wide {
     width: calc(var(--size) + 70px);
     grid-template: repeat(3, 1fr) / 1fr
+}
+
+.headLabel {
+    /* position: absolute; */
+    color: #f8f8ff;
+    margin: 1em 0;
+    /* transform: translateY(-1.75em); */
 }

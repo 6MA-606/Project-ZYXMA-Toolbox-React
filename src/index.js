@@ -11,8 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/zyxma-toolbox" element={<Toolbox lightModeBG="#fefefe" darkModeBG="#27273a"/>} />
+      {/* <Route path="/" element={<LandingPage />} />
+      <Route path="/zyxma-toolbox" element={<Toolbox lightModeBG="#fefefe" darkModeBG="#27273a"/>} /> */}
+      <Route path="/" element={<Toolbox lightModeBG="#fefefe" darkModeBG="#27273a"/>} />
     </Routes>
   </BrowserRouter>
 );

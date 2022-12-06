@@ -57,7 +57,7 @@ class Toolbox extends React.Component {
                 this.setState({ content: <ElementBox /> });
                 break;
             case '103':
-                this.setState({ header: <span>Playground</span> });
+                this.setState({ header: <span>ZYXMA-TOOLBOX</span> });
                 this.setState({ content: <Playground /> });
                 break;
             case '600':
@@ -140,15 +140,15 @@ class Toolbox extends React.Component {
                             <SideNavBth main className="home_btn">
                                 <Icon variant="house" lightModeColor="#8000ff" darkModeColor="#00efaa"/>
                             </SideNavBth>
-                            <SideNavBth className="list_1">
+                            {/* <SideNavBth className="list_1">
                                 <Icon variant="textarea" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
-                            </SideNavBth>
+                            </SideNavBth> */}
                             <SideNavBth className="list_2">
                                 <Icon variant="qr-code" lightModeColor="#303030" darkModeColor="#f8f8ff" />
                             </SideNavBth>
-                            <SideNavBth className="list_3">
+                            {/* <SideNavBth className="list_3">
                                 <Icon variant="box" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
-                            </SideNavBth>
+                            </SideNavBth> */}
                             <SideNavBth className="list_4">
                                 <Icon variant="joystick" lightModeColor="#303030" darkModeColor="#f8f8ff"/>
                             </SideNavBth>

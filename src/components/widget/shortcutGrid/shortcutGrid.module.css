@@ -1,0 +1,21 @@
+:root {
+    --size: 230px;
+}
+
+.shortcutGrid {
+    height: var(--size);
+    display: grid;
+    gap: 10px;
+
+    /* background-color: red; */
+}
+
+.icon {
+    width: var(--size);
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.wide {
+    width: calc(var(--size) + 70px);
+    grid-template: repeat(3, 1fr) / 1fr
+}

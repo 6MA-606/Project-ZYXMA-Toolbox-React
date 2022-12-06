@@ -1,7 +1,8 @@
 import Shortcut from '../../components/shortcut';
+import ShortcutGrid from '../../components/widget/shortcutGrid/main';
 // import { DarkModeSwitch } from '../../components/widget/darkModeSwitch/main';
-import MoonToday from '../../components/widget/moonToday/main';
-import ShortcutGroup from '../../components/widget/shortcutGroup.js/main';
+// import MoonToday from '../../components/widget/moonToday/main';
+import ShortcutGroup from '../../components/widget/shortcutGroup/main';
 // import { Icon } from '../../components/icon/main';
 // import AudioPlayer from '../../prototype/audioPlayer/main';
 import playground from './playground.module.css';
@@ -10,9 +11,9 @@ function Playground() {
     
     return (
         <div id="Playground" className={ playground.container + " noselect"}>
-            <MoonToday />
+            {/* <MoonToday /> */}
 
-            <ShortcutGroup type="wide">
+            <ShortcutGrid type="wide">
                 <Shortcut thumbnail='./img/icon/leb2.png' bgimage="linear-gradient(to right, #17b5be 70px, #24dae4 100%)" color="#fff" labelAlign="center" href="https://www.leb2.org">
                     <span style={{ fontSize: '1.2em' }}><b>LEB2</b></span>
                 </Shortcut>
@@ -22,9 +23,9 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/pinterest.png' bgimage="linear-gradient(to right, #a00 70px, #e00 100%)" color="#fff" labelAlign="center" href="https://www.pinterest.com">
                     <span style={{ fontSize: '1.2em' }}><b>Pinterest</b></span>
                 </Shortcut>
-            </ShortcutGroup>
+            </ShortcutGrid>
 
-            <ShortcutGroup type="icon">
+            <ShortcutGrid>
                 <Shortcut thumbnail='./img/icon/spotify.png' bgcolor="#222" href="https://open.spotify.com/search" icon />
                 <Shortcut thumbnail='./img/icon/ig.png' bgimage="url('./img/icon/bg/ig_bg.jpg')" href="https://www.instagram.com" thumbnailInvert icon />
                 <Shortcut thumbnail='./img/icon/facebook.png' bgcolor="#05a" href="https://www.facebook.com" icon />
@@ -43,8 +44,8 @@ function Playground() {
                 </Shortcut>
                 <Shortcut thumbnail='./img/icon/google/doc.png' bgcolor="#f8f8ff" href="https://docs.google.com" icon />
                 <Shortcut thumbnail='./img/icon/google/drive.png' bgcolor="#f8f8ff" href="https://drive.google.com" icon />
-            </ShortcutGroup>
-            <ShortcutGroup type="icon">
+            </ShortcutGrid>
+            <ShortcutGrid>
                 <Shortcut thumbnail='./img/icon/ilovepdf.png' bgcolor="#f8f8ff" href="https://www.ilovepdf.com" icon />
                 <Shortcut thumbnail='./img/icon/htmlcolorcode.png' bgcolor="#f8f8ff" href="https://htmlcolorcodes.com" icon tooltip="HTML Color Codes" />
                 <Shortcut thumbnail='./img/icon/overapi.png' bgcolor="#444850" href="https://overapi.com" icon tooltip="OverAPI" />
@@ -54,8 +55,10 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/colorsupply.png' bgcolor="#f8f8ff" href="https://colorsupplyyy.com/app" icon tooltip="Color Supply"/>
                 <Shortcut thumbnail='./img/icon/bootstrap5_icon.png' bgimage="url('./img/icon/bg/bootstrap5_icon_bg.jpg')" href="https://icons.getbootstrap.com" icon tooltip="Bootstrap5 Icon"/>
                 <Shortcut thumbnail='./img/icon/framermotion.png' bgcolor="#202020" href="https://www.framer.com/motion/" icon tooltip="Framer Motion"/>
-            </ShortcutGroup>
-            <ShortcutGroup type="icon">
+            </ShortcutGrid>
+            
+
+            <ShortcutGrid>
                 <Shortcut thumbnail='./img/icon/colorhunt.png' bgcolor="#f8f8ff" href="https://colorhunt.co" icon tooltip="Color Hunt"/>
                 <Shortcut internalThumbnail bgcolor="#0e2a47" href="https://bgjar.com" icon tooltip="BGJar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 100 100">
@@ -77,7 +80,7 @@ function Playground() {
                 <Shortcut thumbnail='./img/icon/netlify.png' bgcolor="#f8f8ff" href="https://app.netlify.com/" icon tooltip="Netlify"/>
                 <Shortcut thumbnail='./img/icon/flexboxfroggy.png' bgcolor="#43a047" href="https://flexboxfroggy.com" icon tooltip="Flexbox Froggy"/>
                 <Shortcut thumbnail='./img/icon/gridgarden.png' bgcolor="#836b32" href="https://cssgridgarden.com" icon tooltip="Grid Garden"/>
-            </ShortcutGroup>
+            </ShortcutGrid>
 
             {/* <AudioPlayer /> */}
             {/* <RandomNumber /> */}

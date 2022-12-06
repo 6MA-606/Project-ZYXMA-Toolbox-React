@@ -21,8 +21,8 @@ function MoonInfo(props) {
     const [next,setNext] = useState('');
     
     $.get('https://www.fullmoonphase.com/asia/thailand/bangkok.htm').then(function(html) {
-        
         let rawdata = $(html).find('#moon-phase');
+        console.log(rawdata.text());
         const data_00 = (rawdata.text()).split('on');
         const data_01 = (data_00[data_00.length - 1].split('\t'));
         removeItemAll(data_01, '');
@@ -33,7 +33,7 @@ function MoonInfo(props) {
     
         const percent = data_01[1].replace(' illuminated\n', '');
         const next = data_12[0].replace('.', '').replace(' ', '');
-
+        console.log(percent);
         setNext(next);
         setPercent(parseFloat(percent));
 

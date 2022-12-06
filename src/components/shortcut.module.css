@@ -1,3 +1,9 @@
+.shortcut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .item {
     display: flex;
     align-items: center;
@@ -5,40 +11,15 @@
 }
 
 .container {
-    /* height: 70px; */
-    /* margin: 2vw; */
     border-radius: 20px;
     overflow: hidden;
     display: flex;
     transition: .25s;
     box-shadow: #00000044 6px 6px 10px 1px;
-    /* z-index: 2; */
-}
-
-.container:hover {
-    filter: saturate(1.5);
-    transform: scale(1.05);
     cursor: pointer;
 }
 
-.container:active {
-    transform: scale(0.95);
-}
-
-.container img, .container svg {
-    transition: .25s;
-}
-
-.container:hover img, .container:hover svg {
-    transform: scale(1.2);
-}
-
-.container:active img, .container:active svg {
-    transform: scale(0.8);
-}
-
-.tooltiptext, .item:hover .tooltiptext:hover {
-    visibility: shhideow;
+.tooltiptext {
     opacity: 0%;
     font-size: 0.75em;
     position: absolute;
@@ -46,14 +27,7 @@
     background-color: #0007;
     padding: 1px 3px;
     border-radius: 5px;
-    transform: translateY(-40px);
-    transition: 0.25s;
+    -webkit-user-select: none;
+    user-select: none;
     z-index: 3;
-}
-
-.item:hover .tooltiptext {
-    visibility: visible;
-    transform: translateY(-48px);
-    opacity: 100%;
-    transition: .25s;
 }

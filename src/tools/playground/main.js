@@ -13,12 +13,10 @@ function Playground() {
             {/* <MoonToday /> */}
 
             <ShortcutGrid label="Relax Zone">
-                <Shortcut thumbnail='./img/icon/spotify.png' bgcolor="#222" href="https://open.spotify.com/search" icon />
-                <Shortcut thumbnail='./img/icon/youtube.png' bgcolor="#222" href="https://www.youtube.com" icon />
-                <Shortcut thumbnail='./img/icon/ig.png' bgimage="url('./img/icon/bg/ig_bg.jpg')" href="https://www.instagram.com" thumbnailInvert icon />
-                <Shortcut thumbnail='./img/icon/facebook.png' bgcolor="#05a" href="https://www.facebook.com" icon />
-                
-                
+                <Shortcut thumbnail='./img/icon/spotify.png' bgcolor="#222" href="https://open.spotify.com/search" icon tooltip="Spotify"/>
+                <Shortcut thumbnail='./img/icon/youtube.png' bgcolor="#222" href="https://www.youtube.com" icon tooltip="Youtube"/>
+                <Shortcut thumbnail='./img/icon/ig.png' bgimage="url('./img/icon/bg/ig_bg.jpg')" href="https://www.instagram.com" thumbnailInvert icon tooltip="Instagram"/>
+                <Shortcut thumbnail='./img/icon/facebook.png' bgcolor="#05a" href="https://www.facebook.com" icon tooltip="Facebook"/>
             </ShortcutGrid>
 
             <ShortcutGrid label="Education">
@@ -74,6 +72,16 @@ function Playground() {
             <ShortcutGrid label="Workspace">
                 <Shortcut thumbnail='./img/icon/github.png' bgcolor="#252525" href="https://github.com" icon tooltip="Github" thumbnailInvert/>
                 <Shortcut thumbnail='./img/icon/leb2.png' bgcolor="#17b5be" href="https://www.leb2.org" icon tooltip="LEB2"/>
+                <Shortcut internalThumbnail bgcolor="#252525" href="https://www.figma.com/" icon tooltip="Figma">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 38 57" class="figma-1p2i2oq" aria-label="Homepage">
+                        <path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"></path>
+                        <path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"></path>
+                        <path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"></path>
+                        <path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"></path>
+                        <path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"></path>
+                    </svg>
+                </Shortcut>
+                <Shortcut thumbnail='./img/icon/gmail.png' bgcolor="#f8f8ff" href="https://mail.google.com" icon tooltip="Gmail"/>
                 <Shortcut thumbnail='./img/icon/google/doc.png' bgcolor="#f8f8ff" href="https://docs.google.com" icon tooltip="Docs"/>
                 <Shortcut thumbnail='./img/icon/google/drive.png' bgcolor="#f8f8ff" href="https://drive.google.com" icon tooltip="Drive"/>
             </ShortcutGrid>

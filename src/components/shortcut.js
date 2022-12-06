@@ -1,84 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import shortcut from './shortcut.module.css';
+import { motion } from 'framer-motion';
 
-class Shortcut extends React.Component {
-    constructor(props) {
-        super(props);
-        const { thumbnail, bgcolor, color, labelAlign, href, thumbnailInvert, icon, bgimage, tooltip, internalThumbnail } = props;
 
-        this.state = {
-            thumbnail: thumbnail,
-            bgcolor: bgcolor,
-            bgimage: bgimage,
-            color: color,
-            align: labelAlign,
-            href: href,
-            thumbnailInvert: thumbnailInvert,
-            icon: icon,
-            internalThumbnail: internalThumbnail,
-            tooltip: tooltip
-        }
+const Shortcut = (props) => {
 
-        this.onClick = this.onClick.bind(this);
+    const { thumbnail, bgcolor, color, labelAlign, href, thumbnailInvert, icon, bgimage, tooltip, internalThumbnail } = props;
+
+    const [show, setShow] = useState(false);
+
+    const handleClick = () => {
+        window.open( href, '_blank');
     }
 
-    onClick() {
-        window.open( this.state.href, '_blank');
+    let invert = thumbnailInvert ? 1 : 0;
+    let styles = {
+        backgroundColor: bgcolor,
+        backgroundImage: bgimage,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: icon ? '70px' : '300px',
+        height: '70px'
     }
 
-    render() {
-        // console.log(this.state.thumbnail);
-        let invert = this.state.thumbnailInvert ? 1 : 0;
-        let styles = {
-            backgroundColor: this.state.bgcolor,
-            backgroundImage: this.state.bgimage,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: this.state.icon ? '70px' : '300px',
-            height: '70px'
-        }
+    const content = (
+        <div style={{ color: color, display: 'flex', flex: '230px', justifyContent: labelAlign }}>
+            { props.children }
+        </div>
+    );
 
-        const content = (
-            <div style={{ color: this.state.color, display: 'flex', flex: '230px', justifyContent: this.state.align }}>
-                { this.props.children }
-            </div>
-        );
-
-
-        function tooltip(tooltip) {
-            if (tooltip !== undefined && tooltip !== '') {
-                return (<span className={ shortcut.tooltiptext }>{ tooltip }</span>);
-            }
-            return '';
-        }
-
-        const thumbnail = (internalThumbnail) => {
-
-            if (internalThumbnail) return this.props.children;
-
+    const tooltip_form = (tooltip) => {
+        if (tooltip !== undefined && tooltip !== '') {
             return (
-                <img
-                    src={ this.state.thumbnail }
-                    height="70px"
-                    weight="auto"
-                    alt="thumbnail missing"
-                    style={{ flex: '70px', filter: 'invert(' + invert + ')' }}/>
-                );
-        };
+                <motion.span
+                    className={ shortcut.tooltiptext }
+                    animate={show ? { opacity: 1, y: "-120%" } : { opacity: 0, y: "0%" }}
+                >
+                    { tooltip }
+                </motion.span>);
+        }
+        return '';
+    }
+
+    const thumbnail_form = (internalThumbnail) => {
+
+        if (internalThumbnail) return props.children;
 
         return (
-            <div className={ shortcut.item }>
-                { tooltip(this.state.tooltip) }
-                <div className={ shortcut.container } onClick={ this.onClick } style={ styles }>
-                    { thumbnail(this.state.internalThumbnail) }
-                    { this.state.icon ? '' : content }
-                </div>
-            </div>
+            <img
+                src={ thumbnail }
+                height="70px"
+                weight="auto"
+                alt="thumbnail missing"
+                style={{ flex: '70px', filter: 'invert(' + invert + ')' }}
+            />
         );
     }
+
+    return (
+        <div className={ shortcut.shortcut }>
+            { tooltip_form(tooltip) }
+            <motion.div
+                className={ shortcut.item }
+                whileHover={{ type: "spring", bounce: 5, scale: 1.2 }}
+                whileTap={{ type: "spring", bounce: 5, scale: 0.8 }}
+                onMouseEnter={() => {setShow(true)}}
+                onMouseLeave={() => {setShow(false)}}
+            >
+                <div className={ shortcut.container } onClick={ handleClick } style={ styles }>
+                    { thumbnail_form(internalThumbnail) }
+                    { icon ? '' : content }
+                </div>
+            </motion.div>
+        </div>
+    );
 }
 
 export default Shortcut;

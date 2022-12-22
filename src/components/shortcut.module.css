@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .item {
@@ -27,7 +29,5 @@
     background-color: #0007;
     padding: 1px 3px;
     border-radius: 5px;
-    -webkit-user-select: none;
-    user-select: none;
     z-index: 3;
 }
